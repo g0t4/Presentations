@@ -1,10 +1,12 @@
-﻿namespace AggregateSample
-{
-	using System;
-	using System.Linq;
-	using NUnit.Framework;
-	using Raven.Client.Document;
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using Newtonsoft.Json.Serialization;
+using NUnit.Framework;
+using Raven.Client.Document;
 
+namespace AggregateSample
+{
 	[TestFixture]
 	public class Demos
 	{
@@ -31,7 +33,7 @@
 		[Test]
 		public void QueryTrade()
 		{
-			using (var documentStore = new DocumentStore { Url = RavenConnectionString })
+			using (var documentStore = new DocumentStore {Url = RavenConnectionString})
 			{
 				documentStore.Initialize();
 				using (var session = documentStore.OpenSession())
@@ -39,22 +41,24 @@
 					var trades = session
 						.Query<StructuredTrade>()
 						.ToArray();
+					var trade = trades.First();
 				}
 			}
 		}
 
 		[Test]
-		public void DynamicQueryTrade()
+		public void DeleteTrades()
 		{
-			using (var documentStore = new DocumentStore { Url = RavenConnectionString })
+			using (var documentStore = new DocumentStore {Url = RavenConnectionString})
 			{
 				documentStore.Initialize();
 				using (var session = documentStore.OpenSession())
 				{
-					var trades = session
+					session
 						.Query<StructuredTrade>()
-						.Where(s=> s.Id == )
-						.ToArray();
+						.ToArray()
+						.ToList()
+						.ForEach(session.Delete);
 				}
 			}
 		}

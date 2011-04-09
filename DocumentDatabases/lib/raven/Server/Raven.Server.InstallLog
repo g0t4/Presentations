@@ -1,0 +1,13 @@
+﻿Installing assembly 'O:\Code\Presentations\DocumentDatabases\lib\raven\Server\Raven.Server.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = O:\Code\Presentations\DocumentDatabases\lib\raven\Server\Raven.Server.exe
+   logfile = O:\Code\Presentations\DocumentDatabases\lib\raven\Server\Raven.Server.InstallLog
+Installing service RavenDB...
+Service RavenDB has been successfully installed.
+Creating EventLog source RavenDB in log Application...
+Committing assembly 'O:\Code\Presentations\DocumentDatabases\lib\raven\Server\Raven.Server.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = O:\Code\Presentations\DocumentDatabases\lib\raven\Server\Raven.Server.exe
+   logfile = O:\Code\Presentations\DocumentDatabases\lib\raven\Server\Raven.Server.InstallLog
