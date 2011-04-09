@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="AggregateSample.Swap">
+    <Position X="7.25" Y="3.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQABAAAgAAAAABAAQAAAAAAAAAAIAAAAABA=</HashCode>
+      <FileName>Swap.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AggregateSample.Option">
+    <Position X="4" Y="3.5" Width="3" />
+    <NestedTypes>
+      <Enum Name="AggregateSample.Option.OptionType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Option.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAIAQAAAAAAAAACADAAQAACAAAAAAAAAAAAABg=</HashCode>
+      <FileName>Option.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AggregateSample.Cash">
+    <Position X="10.75" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Cash.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AggregateSample.StructuredTrade">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAAAAAAAAAAAAAAQAQAAAAAIBAAAAAAAAAgA=</HashCode>
+      <FileName>StructuredTrade.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Trades" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="AggregateSample.MonthOfYear">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>MonthOfYear.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="AggregateSample.Contract">
+    <Position X="1" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="AggregateSample.ITrade" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITrade.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AggregateSample.IUnderlying">
+    <Position X="6" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>IUnderlying.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

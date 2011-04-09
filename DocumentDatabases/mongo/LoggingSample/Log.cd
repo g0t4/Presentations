@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="LoggingSample.LogEntry">
+    <Position X="4.25" Y="0.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAAGIAAAAAACAAAAAAAAAAgAAAAABAUBAKAACAAA=</HashCode>
+      <FileName>LogEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoggingSample.AuditEntry">
+    <Position X="9.25" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAACAAACAAAAAAAAAAAgAAgAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>AuditEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
