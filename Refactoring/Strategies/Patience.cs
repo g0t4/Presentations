@@ -13,38 +13,38 @@ namespace Refactoring.Strategies
 		}
 
 		/*
-		 * Boy scouts - Always leave the campground cleaner than you found it.
-		 * Daily small refactorings
-		 * Changes converge over time
+		 * Boy scouts
+		 *	Always leave the campground cleaner than you found it.
+		 *	Everytime you work on code pick up some trash!
 		 * 
 		 * DVCS and checkins - don't interrupt others, small steps
 		 * 
 		 */
-		
+
 		[Test]
 		public void Patience()
 		{
-			List<string> emails = new List<string> { "bob@bob.com", "jane@bob.com", "dan@dan.com" };
+			List<string> list = new List<string> { "bob@bob.com", "bob@dan.com", "jane@bob.com", "dan@dan.com" };
 			Dictionary<string, List<string>> groups = new Dictionary<string, List<string>>();
-			for (int i = 0; i < emails.Count(); i++)
+			for (var i = 0; i < list.Count; i++)
 			{
-				Match split = Regex.Matches(emails[i], @"[^@]*@(.*)")[0];
-				string domain = split.Groups[1].Value;
-				if (!groups.ContainsKey(domain))
+				Match m = Regex.Matches(list[i], @"[^@]*@(.*)")[0];
+				string g = m.Groups[1].Value;
+				if (!groups.ContainsKey(g))
 				{
-					groups.Add(domain, new List<string> { emails[i] });
+					groups.Add(g, new List<string> { list[i] });
 				}
 				else
 				{
-					groups[domain].Add(emails[i]);
+					groups[g].Add(list[i]);
 				}
 			}
-			foreach (var key in groups.Keys)
+			foreach (string k in groups.Keys)
 			{
-				Console.WriteLine("Emails for domain: " + key);
-				for (int i = 0; i < groups[key].Count; i++)
+				Console.WriteLine(k + ":");
+				for (int i = 0; i < groups[k].Count; i++)
 				{
-					Console.WriteLine(groups[key][i]);
+					Console.WriteLine(groups[k][i]);
 				}
 				Console.WriteLine();
 			}

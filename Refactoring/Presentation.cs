@@ -47,12 +47,11 @@
 			Tools.MovingBeyondFindAndReplace();
 		}
 
-		public void Strategies()
+		public void Samples()
 		{
 			Readability.IsHighlyUnderrated();
 			What.VersusHow();
 			Nuke.UnusedCode();
-			// DVCS - small steps
 			PatienceAnd.Scouting();
 		}
 

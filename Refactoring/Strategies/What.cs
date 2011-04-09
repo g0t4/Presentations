@@ -12,6 +12,7 @@ namespace Refactoring.Strategies
 		public static void VersusHow()
 		{
 			// It's really about composition and re-use
+			// Frameworks like Steve said
 		}
 
 		public void FilePaths(string fileName)

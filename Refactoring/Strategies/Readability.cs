@@ -17,12 +17,12 @@ namespace Refactoring
 			[Test]
 			public void WhatDoesThisDo()
 			{
-				var list = new List<string> {"bob@bob.com", "bob@dan.com", "jane@bob.com", "dan@dan.com"};
-				var groups = new Dictionary<string, List<string>>();
+				List<string> list = new List<string> {"bob@bob.com", "bob@dan.com", "jane@bob.com", "dan@dan.com"};
+				Dictionary<string, List<string>> groups = new Dictionary<string, List<string>>();
 				for (var i = 0; i < list.Count; i++)
 				{
-					var m = Regex.Matches(list[i], @"[^@]*@(.*)")[0];
-					var g = m.Groups[1].Value;
+					Match m = Regex.Matches(list[i], @"[^@]*@(.*)")[0];
+					string g = m.Groups[1].Value;
 					if (!groups.ContainsKey(g))
 					{
 						groups.Add(g, new List<string> {list[i]});
@@ -32,10 +32,10 @@ namespace Refactoring
 						groups[g].Add(list[i]);
 					}
 				}
-				foreach (var k in groups.Keys)
+				foreach (string k in groups.Keys)
 				{
 					Console.WriteLine(k + ":");
-					for (var i = 0; i < groups[k].Count; i++)
+					for (int i = 0; i < groups[k].Count; i++)
 					{
 						Console.WriteLine(groups[k][i]);
 					}

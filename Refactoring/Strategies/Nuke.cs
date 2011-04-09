@@ -8,6 +8,14 @@ namespace Refactoring.Strategies
 		{
 		}
 
+		/* Introduce a seam
+		 *	Extract method
+		 *	Replace anonymous type with named
+		 *	Add assertion
+		 *	
+		 * Nuke away - err refactor
+		 */
+
 		public void WeHaveVersionControlForAReason()
 		{
 			// Compare paying off current loans in one year
