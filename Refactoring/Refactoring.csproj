@@ -51,7 +51,9 @@
     <Compile Include="Motivation\TechnologyEvolves.cs" />
     <Compile Include="Presentation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Readability.cs" />
+    <Compile Include="Strategies\Readability.cs" />
+    <Compile Include="Strategies\Nuke.cs" />
+    <Compile Include="Strategies\Patience.cs" />
     <Compile Include="Strategies\What.cs" />
     <Compile Include="Testing.cs" />
   </ItemGroup>
