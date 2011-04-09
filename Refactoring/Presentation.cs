@@ -25,7 +25,7 @@
 		}
 
 		public void Motivation()
-		{ // 5 minutes
+		{
 			TechnicalDebt.ForReals();
 
 			TechnologyEvolves.GettingOddNumbersThen();
@@ -36,24 +36,24 @@
 			// understanding evolves
 			// telephone management
 
-			// Refactoring - effective change
+			// How to Change => Refactoring
 		}
 
 		public void ChangingWithConfidence()
-		{ // 8 minutes
+		{
 			Testing.ProvidesConfidence();
 			// Know what matters - http://geekswithblogs.net/wesm/archive/2011/04/05/refactoring-part-ii---tight-rope-walking--what-can.aspx
 			// Learn the domain - buy books, study etc
-			// Know your tools
+			Tools.MovingBeyondFindAndReplace();
 		}
 
 		public void Strategies()
 		{
-			Readability.IsHighlyUnderrated(); // 2 minutes
-			What.VersusHow(); // 5 minutes
-			Nuke.UnusedCode(); // 3 minutes
+			Readability.IsHighlyUnderrated();
+			What.VersusHow();
+			Nuke.UnusedCode();
 			// DVCS
-			PatienceAnd.Scouting(); // 10 minutes
+			PatienceAnd.Scouting();
 		}
 
 		public void Resistance()
@@ -72,7 +72,7 @@
 			Intro();
 		}
 
-		public void Tools()
+		public void ToolsResources()
 		{
 			// What REFACTOR how AUTOMATED REFACTORINGS = exponential refactoring
 			/*
