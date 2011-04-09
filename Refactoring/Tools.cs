@@ -5,7 +5,7 @@ namespace Refactoring
 {
 	public class Tools
 	{
-		public static void CanAutomateRefactoring()
+		public static void MovingBeyondFindAndReplace()
 		{
 		}
 

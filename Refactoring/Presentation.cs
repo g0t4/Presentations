@@ -52,7 +52,7 @@
 			Readability.IsHighlyUnderrated();
 			What.VersusHow();
 			Nuke.UnusedCode();
-			// DVCS
+			// DVCS - small steps
 			PatienceAnd.Scouting();
 		}
 
