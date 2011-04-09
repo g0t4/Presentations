@@ -16,6 +16,9 @@ namespace Refactoring.Strategies
 		 * Boy scouts - Always leave the campground cleaner than you found it.
 		 * Daily small refactorings
 		 * Changes converge over time
+		 * 
+		 * DVCS and checkins - don't interrupt others, small steps
+		 * 
 		 */
 		
 		[Test]

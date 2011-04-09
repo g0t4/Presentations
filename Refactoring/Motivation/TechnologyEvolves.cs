@@ -5,7 +5,7 @@ namespace Refactoring
 
 	public class TechnologyEvolves
 	{
-		public static void Then()
+		public static void GettingOddNumbersThen()
 		{
 			var allNumbers = AllNumbers();
 			var oddNumbers = new List<int>();
@@ -18,7 +18,7 @@ namespace Refactoring
 			}
 		}
 
-		public static void Now()
+		public static void GettingOddNumbersNow()
 		{
 			var oddNumbers = AllNumbers()
 				.Where(NumberIsOdd)

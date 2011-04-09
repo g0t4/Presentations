@@ -25,11 +25,11 @@
 		}
 
 		public void Motivation()
-		{
+		{ // 5 minutes
 			TechnicalDebt.ForReals();
 
-			TechnologyEvolves.Then();
-			TechnologyEvolves.Now();
+			TechnologyEvolves.GettingOddNumbersThen();
+			TechnologyEvolves.GettingOddNumbersNow();
 
 			// business evolves - http://i.imgur.com/TPiIV.png
 
@@ -40,8 +40,8 @@
 		}
 
 		public void ChangingWithConfidence()
-		{
-			Testing.Main();
+		{ // 8 minutes
+			Testing.ProvidesConfidence();
 			// Know what matters - http://geekswithblogs.net/wesm/archive/2011/04/05/refactoring-part-ii---tight-rope-walking--what-can.aspx
 			// Learn the domain - buy books, study etc
 			// Know your tools
@@ -49,19 +49,19 @@
 
 		public void Strategies()
 		{
-			Readability.IsHighlyUnderrated();
-			What.VersusHow();
-			PatienceAnd.Scouting();
-			Nuke.UnusedCode();
+			Readability.IsHighlyUnderrated(); // 2 minutes
+			What.VersusHow(); // 5 minutes
+			Nuke.UnusedCode(); // 3 minutes
 			// DVCS
+			PatienceAnd.Scouting(); // 10 minutes
 		}
 
-		public void Resistence()
+		public void Resistance()
 		{
-			// BLOG POST here
 			// Fear
 			// Politics
 			// Ignorance
+			// Apathy
 			// Investments & the 80/20 rule
 			// Don't ask for permission or forgiveness - this is your job
 			// Learn through refactoring

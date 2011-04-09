@@ -5,12 +5,16 @@ namespace Refactoring
 
 	public class Testing : AssertionHelper
 	{
-		#region Manual
+		public static void ProvidesConfidence()
+		{
+		}
+
+		#region Manual - Run code and view the output
 
 		public static void Main()
 		{
 			var test = new Testing();
-			test.PrintInterest(5000m, 0.05m, 2m);
+			test.PrintInterest(4000m, 0.05m, 2m);
 			Console.ReadKey();
 		}
 
