@@ -1,6 +1,6 @@
 ﻿namespace Refactoring
 {
-	using System;
+	using Strategies;
 
 	public class Presentation
 	{
@@ -34,37 +34,39 @@
 			// business evolves - http://i.imgur.com/TPiIV.png
 
 			// understanding evolves
-				// telephone management
-			
-			// A need for change
-				// too much bitching, not enough refactoring
+			// telephone management
+
+			// Refactoring - effective change
 		}
 
-		public void WhatIsRefactoring()
+		public void ChangingWithConfidence()
 		{
-			// Evolutionary change
+			Testing.Main();
+			// Know what matters - http://geekswithblogs.net/wesm/archive/2011/04/05/refactoring-part-ii---tight-rope-walking--what-can.aspx
+			// Learn the domain - buy books, study etc
+		}
 
-			// Subjective
+		public void Strategies()
+		{
+			Readability.IsHighlyUnderrated();
+			What.VersusHow();
+			// patience - refactoring is often a convergent evolution *******
+		}
 
-			// Testing - confident change
-				// Automated
-				// Manual
-				// Introducing seams
-				// Know what matters - http://geekswithblogs.net/wesm/archive/2011/04/05/refactoring-part-ii---tight-rope-walking--what-can.aspx
+		public void Resistence()
+		{
+			// Fear
+			// Politics
+			// Ignorance
+			// Investments & the 80/20 rule
+			// Leaving the world a better place - boy scouting
+			// Don't ask for permission or forgiveness - justify why (blog post here)
+		}
 
-			// Strategies/Tips/Smells
-				Rename.IsHighlyUnderrated();
-				// patience - refactoring is often a convergent evolution *******
-				// what & how together
-			
-			// Resistence
-				// Fear
-				// Politics
-				// Ignorance
-				// Investments & the 80/20 rule
-				// Leaving the world a better place - boy scouting
-	
-			
+
+		public void Questions()
+		{
+			Intro();
 		}
 
 		public void Tools()
@@ -82,17 +84,12 @@
 			 */
 		}
 
-		public void Resources()
+		public void Books()
 		{
 			// Refactoring: Improving the Design of Existing Code - Martin Fowler
-				// http://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672
+			// http://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672
 			// Refactoring to Patterns - Joshua Kerievsky
-				// http://industriallogic.com/xp/refactoring/catalog.html
-		}
-
-		public void Questions()
-		{
-			Intro();
+			// http://industriallogic.com/xp/refactoring/catalog.html
 		}
 	}
 }
