@@ -18,7 +18,7 @@
 		{
 			var a = 5;
 			var b = 4;
-			var expectedResult = 10;
+			var expectedResult = 9;
 			var calculator = new Calculator();
 
 			var actualResult = calculator.Add(a, b);
