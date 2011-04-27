@@ -6,7 +6,7 @@
 	{
 		public decimal Add(int a, int b)
 		{
-			return a + b;s
+			return a + b;
 		}
 	}
 
@@ -18,7 +18,7 @@
 		{
 			var a = 5;
 			var b = 4;
-			var expectedResult = 9;
+			var expectedResult = 10;
 			var calculator = new Calculator();
 
 			var actualResult = calculator.Add(a, b);
