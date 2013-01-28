@@ -1,0 +1,11 @@
+bin/
+out/
+gen/
+R.java
+.settings/
+local.properties
+
+tasks.xml
+workspace.xml
+node_modules/
+npm-debug.log
