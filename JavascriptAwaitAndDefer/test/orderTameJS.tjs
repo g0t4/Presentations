@@ -1,0 +1,32 @@
+var expect = require('node-assertthat').that;
+var Order = require('../order');
+var mongoose = require('mongoose');
+var tracking = require('../tracking');
+var emailer = require('../emailer');
+var User = require('../user');
+
+module.exports = function (test) {
+    await { mongoose.connect('mongodb://localhost/awaitdefer', defer(error)); }
+    if (error) throw error;
+
+    var orderId = 1;
+    await { Order.findById(orderId, defer (error, order));}
+    if (error) throw error;
+
+    await {
+        User.findById(order.customer.id, defer (error, user));
+        tracking.track(order.trackingId, defer (error2, trackingInformation));
+    }
+    if (error || error2) throw error || error2;
+    mongoose.connection.close();
+
+    var message = {
+        subject: 'Order: ' + order.name,
+        email: user.email,
+        body: 'Tracking: ' + trackingInformation
+    };
+    await { emailer.sendEmail(message, defer (error)); }
+    if (error) throw error;
+
+    test.done();
+};
