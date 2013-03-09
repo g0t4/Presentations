@@ -1,6 +1,11 @@
 require('tamejs').register();
 require('coffee-script');
 require('iced-coffee-script');
+require('streamline').register({
+    fibers: false,
+    cache: true,
+    verbose: true
+});
 
 function addTest(file) {
     module.exports[file] = require(file);
@@ -15,8 +20,10 @@ function addTest(file) {
  addTest('./orderInvoke.coffee');
  addTest('./orderNue.coffee');
  addTest('./orderAsyncjs.coffee');
+ addTest('./orderQ.coffee');
+ addTest('./orderStreamline._js');
+ addTest('./orderStreamline._coffee');
  */
-addTest('./orderQ.coffee');
 
 
 // Things to consider when choosing an alternative:
