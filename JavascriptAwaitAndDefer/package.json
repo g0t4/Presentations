@@ -10,7 +10,6 @@
     "jade": "*",
     "nodeunit": "~0.7.4",
     "nodeunit-watcher": "0.0.2",
-    "mongoose": "~3.5.4",
     "tamejs": "~0.4.9",
     "coffee-script": "~1.4.0",
     "node-assertthat": "0.0.16",

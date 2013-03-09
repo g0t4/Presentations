@@ -1,23 +1,20 @@
-expect = require("node-assertthat").that
-Order = require "../order"
-mongoose = require "mongoose"
+MongoClient = require "mongodb"
 tracking = require "../tracking"
 emailer = require "../emailer"
-User = require "../user"
 
 module.exports = (test) ->
-  await mongoose.connect "mongodb://localhost/awaitdefer", defer error
+  await MongoClient.connect "mongodb://localhost/awaitdefer", defer error, db
   throw error if error
 
   orderId = 1
-  await Order.findById orderId, defer error, order
+  await db.collection("orders").findOne orderId, defer error, order
   throw error if error
 
   await
-    User.findById order.customer.id, defer error, user
+    db.collection("users").findOne order.customer.id, defer error, user
     tracking.track order.trackingId, defer error2, trackingInformation
   throw error || error2  if error || error2
-  mongoose.connection.close()
+  db.close()
 
   message =
     subject: "Order: " + order.name

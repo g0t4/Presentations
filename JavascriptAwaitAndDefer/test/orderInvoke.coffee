@@ -1,22 +1,22 @@
-expect = require("node-assertthat").that
-Order = require "../order"
-mongoose = require "mongoose"
+MongoClient = require "mongodb"
 tracking = require "../tracking"
 emailer = require "../emailer"
-User = require "../user"
-invoke = require 'invoke'
+invoke = require "invoke"
 
 module.exports = (test) ->
-  connect = (data, callback) -> mongoose.connect "mongodb://localhost/awaitdefer", callback
+  connect = (data, callback) ->
+    MongoClient.connect "mongodb://localhost/awaitdefer", callback
 
+  db = null
   lookupOrder = (data, callback)->
+    db = data
     orderId = 1
-    Order.findById orderId, callback
+    db.collection("orders").findOne orderId, callback
 
   order = null
   queryUser = (data, callback) ->
     order = data
-    User.findById order.customer.id, callback
+    db.collection("users").findOne order.customer.id, callback
 
   queryTracking = (data, callback) ->
     tracking.track data.trackingId, callback
@@ -24,7 +24,7 @@ module.exports = (test) ->
   sendEmail = (data, callback) ->
     user = data[0]
     trackingInformation = data[1]
-    mongoose.connection.close()
+    db.close()
     message =
       subject: "Order: " + order.name
       email: user.email
@@ -36,7 +36,8 @@ module.exports = (test) ->
     throw error if error
     test.done()
 
-  end = -> test.done()
+  end = ->
+    test.done()
 
   invoke(connect)
     .then(lookupOrder)

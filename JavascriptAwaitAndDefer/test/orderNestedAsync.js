@@ -1,19 +1,16 @@
-var expect = require('node-assertthat').that;
-var Order = require('../order');
-var mongoose = require('mongoose');
+var MongoClient = require('mongodb');
 var tracking = require('../tracking');
 var emailer = require('../emailer');
-var User = require('../user');
 
 module.exports = function (test) {
-    mongoose.connect('mongodb://localhost/awaitdefer', function (error) {
+    MongoClient.connect('mongodb://localhost/awaitdefer', function (error, db) {
         if (error) throw error;
         var orderId = 1;
-        Order.findById(orderId, function (error, order) {
+        db.collection('orders').findOne(orderId, function (error, order) {
             if (error) throw error;
-            User.findById(order.customer.id, function (error, user) {
+            db.collection('users').findOne(order.customer.id, function (error, user) {
                 if (error) throw error;
-                mongoose.connection.close();
+                db.close();
                 tracking.track(order.trackingId, function (error, trackingInformation) {
                     if (error) throw error;
                     var message = {
