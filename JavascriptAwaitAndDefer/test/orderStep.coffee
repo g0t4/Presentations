@@ -7,7 +7,6 @@ module.exports = (test) ->
   connect = -> MongoClient.connect "mongodb://localhost/awaitdefer", this
 
   db = null
-
   lookupOrder = (error, _db)->
     throw error if error
     db = _db

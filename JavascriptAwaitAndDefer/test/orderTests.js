@@ -2,14 +2,21 @@ require('tamejs').register();
 require('coffee-script');
 require('iced-coffee-script');
 
-module.exports.orderNestedAsync = require('./orderNestedAsync.js');
-module.exports.orderTameJS = require('./orderTameJS.tjs');
-module.exports.orderNestedAsyncCoffee = require('./orderNestedAsync.coffee');
-module.exports.orderIcedCoffeeScript = require('./orderIcedCoffeeScript.iced');
-module.exports.orderStep = require('./orderStep.coffee');
-module.exports.orderInvoke = require('./orderInvoke.coffee');
-module.exports.orderNue = require('./orderNue.coffee');
-// todo asyncjs
+function addTest(file) {
+    module.exports[file] = require(file);
+}
+
+/*
+ addTest('./orderNestedAsync.js');
+ addTest('./orderTameJS.tjs');
+ addTest('./orderNestedAsync.coffee');
+ addTest('./orderIcedCoffeeScript.iced');
+ addTest('./orderStep.coffee');
+ addTest('./orderInvoke.coffee');
+ addTest('./orderNue.coffee');
+ */
+addTest('./orderAsyncjs.coffee');
+
 
 // Things to consider when choosing an alternative:
 // error handling (can this cascade to the end like unhandled exceptions)
