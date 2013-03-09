@@ -12,19 +12,17 @@ module.exports = (test) ->
     db = _db
     orderId = 1
     db.collection("orders").findOne orderId, callback
-    return
 
   order = null
   queryEmailDetails = (_order, callback) ->
     order = _order
     tasks =
-      user: (cb) ->
-        db.collection("users").findOne order.customer.id, cb
-      trackingInformation: (cb) ->
-        tracking.track order.trackingId, cb
+      user: (callback) ->
+        db.collection("users").findOne order.customer.id, callback
+      trackingInformation: (callback) ->
+        tracking.track order.trackingId, callback
 
     async.parallel(tasks, callback)
-    return
 
   sendEmail = (details, callback) ->
     db.close()
@@ -33,7 +31,6 @@ module.exports = (test) ->
       email: details.user.email
       body: "Tracking: " + details.trackingInformation
     emailer.sendEmail message, callback
-    return
 
   end = (error) ->
     throw error if error
