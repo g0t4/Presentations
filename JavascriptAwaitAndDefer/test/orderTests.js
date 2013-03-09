@@ -11,19 +11,19 @@ function addTest(file) {
     module.exports[file] = require(file);
 }
 
-addTest('./1_orderPyramidOfDoom.js');
 /*
- addTest('./2_orderTameJS.tjs');
+ addTest('./1_orderPyramidOfDoom.js');
  addTest('./1_orderPyramidOfDoom.coffee');
+ addTest('./2_orderTameJS.tjs');
  addTest('./2_orderIcedCoffeeScript.iced');
  addTest('./orderStep.coffee');
  addTest('./orderInvoke.coffee');
  addTest('./orderNue.coffee');
  addTest('./orderAsyncjs.coffee');
  addTest('./orderQ.coffee');
- addTest('./orderStreamline._js');
  addTest('./orderStreamline._coffee');
  */
+addTest('./orderStreamline._js');
 
 
 // Things to consider when choosing an alternative:

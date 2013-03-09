@@ -7,12 +7,12 @@ module.exports = function (test, _) {
     try {
         var orderId = 1;
         var order = db.collection('orders').findOne(orderId, _);
-        var userTask = (function (_) { return db.collection('users').findOne(order.customer.id, _); })();
-        var trackingTask = (function (_) { return tracking.track(order.trackingId, _); })();
+        var getUser = (function (_) { return db.collection('users').findOne(order.customer.id, _); })();
+        var getTracking = (function (_) { return tracking.track(order.trackingId, _); })();
         var message = {
             subject: 'Order: ' + order.name,
-            email: userTask(_).email,
-            body: 'Tracking: ' + trackingTask(_)
+            email: getUser(_).email,
+            body: 'Tracking: ' + getTracking(_)
         };
         emailer.sendEmail(message, _);
     }
