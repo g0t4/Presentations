@@ -14,8 +14,9 @@ function addTest(file) {
  addTest('./orderStep.coffee');
  addTest('./orderInvoke.coffee');
  addTest('./orderNue.coffee');
+ addTest('./orderAsyncjs.coffee');
  */
-addTest('./orderAsyncjs.coffee');
+addTest('./orderQ.coffee');
 
 
 // Things to consider when choosing an alternative:
