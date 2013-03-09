@@ -4,7 +4,8 @@ emailer = require "../emailer"
 step = require 'step'
 
 module.exports = (test) ->
-  connect = -> mongodb.connect "mongodb://localhost/awaitdefer", this
+  connect = ->
+    mongodb.connect "mongodb://localhost/awaitdefer", this
 
   db = null
   lookupOrder = (error, _db)->
@@ -36,11 +37,18 @@ module.exports = (test) ->
     test.done()
 
   step(
-    connect
-    lookupOrder
-    queryEmailDetails
-    sendEmail
-    end
-  )
+        connect
+        lookupOrder
+        queryEmailDetails
+        sendEmail
+        end
+      )
 
+###
+Cons
+  No error handling
+  No state sharing
 
+Pros
+
+###

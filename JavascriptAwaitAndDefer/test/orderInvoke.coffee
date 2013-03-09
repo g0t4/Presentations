@@ -49,3 +49,4 @@ module.exports = (test) ->
 
 
 # No easy way to pass data between stages without globals outside of the scope of the invocation chain
+# Odd "data" needed for first step
