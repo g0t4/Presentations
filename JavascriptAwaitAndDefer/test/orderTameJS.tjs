@@ -1,9 +1,9 @@
-var MongoClient = require('mongodb');
+var mongodb = require('mongodb');
 var tracking = require('../tracking');
 var emailer = require('../emailer');
 
 module.exports = function (test) {
-    await MongoClient.connect('mongodb://localhost/awaitdefer', defer(error, db));
+    await mongodb.connect('mongodb://localhost/awaitdefer', defer(error, db));
     if (error) throw error;
 
     var orderId = 1;

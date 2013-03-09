@@ -1,11 +1,11 @@
-MongoClient = require "mongodb"
+mongodb = require "mongodb"
 tracking = require "../tracking"
 emailer = require "../emailer"
 invoke = require "invoke"
 
 module.exports = (test) ->
   connect = (data, callback) ->
-    MongoClient.connect "mongodb://localhost/awaitdefer", callback
+    mongodb.connect "mongodb://localhost/awaitdefer", callback
 
   db = null
   lookupOrder = (data, callback)->

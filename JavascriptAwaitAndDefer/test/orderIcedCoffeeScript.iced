@@ -1,9 +1,9 @@
-MongoClient = require "mongodb"
+mongodb = require "mongodb"
 tracking = require "../tracking"
 emailer = require "../emailer"
 
 module.exports = (test) ->
-  await MongoClient.connect "mongodb://localhost/awaitdefer", defer error, db
+  await mongodb.connect "mongodb://localhost/awaitdefer", defer error, db
   throw error if error
 
   orderId = 1

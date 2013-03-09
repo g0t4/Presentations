@@ -1,4 +1,4 @@
-MongoClient = require "mongodb"
+mongodb = require "mongodb"
 tracking = require "../tracking"
 emailer = require "../emailer"
 {flow} = require 'nue'
@@ -6,7 +6,7 @@ emailer = require "../emailer"
 
 module.exports = (test) ->
   connect = ->
-    MongoClient.connect "mongodb://localhost/awaitdefer", this.async(as(1))
+    mongodb.connect "mongodb://localhost/awaitdefer", this.async(as(1))
 
   lookupOrder = (db) ->
     orderId = 1
