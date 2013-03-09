@@ -59,8 +59,10 @@
             var mongo = new MongoClient("mongodb://localhost");
             var db = mongo.GetServer().GetDatabase("awaitdefer");
             var order = await db.GetCollection("orders").FindOneByIdAsync(orderId);
-            var user = await db.GetCollection("users").FindOneByIdAsync(order["customer"].AsBsonDocument["id"]);
-            var trackingInformation = await Tracking.TrackAsync(order["trackingId"].AsString);
+            var userTask = db.GetCollection("users").FindOneByIdAsync(order["customer"].AsBsonDocument["id"]);
+            var trackingInformationTask = Tracking.TrackAsync(order["trackingId"].AsString);
+            var user = await userTask;
+            var trackingInformation = await trackingInformationTask;
             var message = new
                 {
                     subject = "Order: " + order["name"],
