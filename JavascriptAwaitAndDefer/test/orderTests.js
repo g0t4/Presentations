@@ -19,7 +19,7 @@ function addTest(file) {
  addTest('./orderStep.coffee');
  addTest('./orderInvoke.coffee');
  addTest('./orderNue.coffee');
- addTest('./orderAsyncjs.coffee');
+ addTest('./3_orderAsyncjs.coffee');
  addTest('./orderQ.coffee');
  addTest('./orderStreamline._coffee');
  */
