@@ -1,3 +1,4 @@
+"use strict";
 var mongodb = require('mongodb');
 var tracking = require('../tracking');
 var emailer = require('../emailer');

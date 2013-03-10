@@ -17,10 +17,8 @@ module.exports = (test) ->
   queryEmailDetails = (_order, callback) ->
     order = _order
     tasks =
-      user: (callback) ->
-        db.collection("users").findOne order.customer.id, callback
-      trackingInformation: (callback) ->
-        tracking.track order.trackingId, callback
+      user: (callback) -> db.collection("users").findOne order.customer.id, callback
+      trackingInformation: (callback) -> tracking.track order.trackingId, callback
 
     async.parallel(tasks, callback)
 

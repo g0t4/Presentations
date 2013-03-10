@@ -1,3 +1,4 @@
+"use strict";
 var mongodb = require('mongodb');
 
 var db = mongodb.connect('mongodb://localhost/awaitdefer', _);

@@ -1,3 +1,4 @@
+"use strict";
 require('tamejs').register();
 require('coffee-script');
 require('iced-coffee-script');

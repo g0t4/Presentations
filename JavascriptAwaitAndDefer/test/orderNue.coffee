@@ -1,8 +1,8 @@
 mongodb = require "mongodb"
 tracking = require "../tracking"
 emailer = require "../emailer"
-{flow} = require 'nue'
-{as} = require 'nue'
+{flow} = require "nue"
+{as} = require "nue"
 
 module.exports = (test) ->
   connect = ->
@@ -38,4 +38,4 @@ module.exports = (test) ->
         end
       )()
 
-# Pros: easily share data between steps, but I'd prefer if this were through parameters in which case you can call this.async(as(1))(null, order) to pass order along with other async callbacks
+# Pros: easily share data between steps, but I"d prefer if this were through parameters in which case you can call this.async(as(1))(null, order) to pass order along with other async callbacks

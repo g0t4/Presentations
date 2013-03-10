@@ -1,7 +1,7 @@
 mongodb = require "mongodb"
 tracking = require "../tracking"
 emailer = require "../emailer"
-step = require 'step'
+step = require "step"
 
 module.exports = (test) ->
   connect = ->

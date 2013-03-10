@@ -1,3 +1,4 @@
+"use strict";
 mongodb = require "mongodb"
 tracking = require "../tracking"
 emailer = require "../emailer"

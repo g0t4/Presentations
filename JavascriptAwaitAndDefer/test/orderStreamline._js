@@ -1,3 +1,4 @@
+"use strict";
 var mongodb = require('mongodb');
 var tracking = require('../tracking');
 var emailer = require('../emailer');
@@ -23,4 +24,4 @@ module.exports = function (test, _) {
         db.close();
         test.done();
     }
-}
+};
