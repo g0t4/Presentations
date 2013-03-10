@@ -46,7 +46,3 @@ module.exports = (test) ->
     .then(sendEmail)
     .rescue(rescue)
     .end({}, end)
-
-
-# No easy way to pass data between stages without globals outside of the scope of the invocation chain
-# Odd "data" needed for first step

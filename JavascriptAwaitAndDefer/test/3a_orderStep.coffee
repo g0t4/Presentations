@@ -13,14 +13,12 @@ module.exports = (test) ->
     db = _db
     orderId = 1
     db.collection("orders").findOne orderId, this
-    return
 
   queryEmailDetails = (error, order) ->
     throw error if error
     this.parallel()(null, order)
     db.collection("users").findOne order.customer.id, this.parallel()
     tracking.track order.trackingId, this.parallel()
-    return
 
   sendEmail = (error, order, user, trackingInformation) ->
     throw error if error
@@ -30,7 +28,6 @@ module.exports = (test) ->
       email: user.email
       body: "Tracking: " + trackingInformation
     emailer.sendEmail message, this
-    return
 
   end = (error) ->
     throw error if error
@@ -43,12 +40,3 @@ module.exports = (test) ->
         sendEmail
         end
       )
-
-###
-Cons
-  No error handling
-  No state sharing
-
-Pros
-
-###

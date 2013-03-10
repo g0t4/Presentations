@@ -37,5 +37,3 @@ module.exports = (test) ->
         sendEmail
         end
       )()
-
-# Pros: easily share data between steps, but I"d prefer if this were through parameters in which case you can call this.async(as(1))(null, order) to pass order along with other async callbacks
