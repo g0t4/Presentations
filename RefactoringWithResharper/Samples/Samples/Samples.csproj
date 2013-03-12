@@ -56,6 +56,7 @@
     <Compile Include="Readable\RenameSample.cs" />
     <Compile Include="Readable\RenameSampleGoal.cs" />
     <Compile Include="Readable\SubjectiveReadable.cs" />
+    <Compile Include="Understandable\UnusedCodeSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
