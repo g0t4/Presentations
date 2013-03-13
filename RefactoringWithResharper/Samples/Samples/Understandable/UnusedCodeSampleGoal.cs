@@ -4,7 +4,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    public class UnusedCodeSample : AssertionHelper
+    public class UnusedCodeSampleGoal : AssertionHelper
     {
         [Test]
         public void Sample()
@@ -26,12 +26,6 @@
                 _CurrentProvider = currentProvider;
             }
 
-            public decimal YearsOld(TimeSpan timeSpan)
-            {
-                var birthDate = DateTime.Today.Subtract(timeSpan);
-                return YearsOld(birthDate);
-            }
-
             public decimal YearsOld(DateTime birthDate)
             {
                 var today = _CurrentProvider();
@@ -39,19 +33,6 @@
                 if (birthDate > today.AddYears(-age)) age--;
                 return age;
             }
-
-            // Err maybe this way would make more sense i just need the test cases ugh!
-            //public decimal YearsOld(DateTime birthDate)
-            //{
-            //    var today = _CurrentProvider();
-            //    var age = today.Subtract(birthDate).TotalDays/365.25;
-            //    return (decimal) age;
-            //}
         }
     }
-
-    // Delete commented out code
-    // Turn on solution inspection - find unused public code! 
-    // Talk about speed issues on slower machines
-    // Safe delete YearsOld(TimeSpan)
 }
