@@ -54,5 +54,7 @@
         // we've talked about introducing seams to test mapping code
         // we've talked about extracting query objects
         // how can we refactor this code to separate querying (loading data), mapping (translating the data set) and consumption (using the data set for our own specific purpose)
+
+        // mapping ideas (getting all mins, all maxes and daily min and max as methods on a mapping layer)
     }
 }

@@ -59,6 +59,6 @@
 
         // consider inlining integration method of GetAllAccounts and Filter call, can't a query object be a service?
 
-        // add another filter criteria for IsPreferred
+        // Expansion joint: use a new test case and add another filter criteria for IsPreferred
     }
 }

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AOP\FindAndReplaceDuplicateCode.cs" />
     <Compile Include="AOP\PersonSample.cs" />
     <Compile Include="AOP\PersonSampleGoal.cs" />
     <Compile Include="AOP\SubjectiveAop.cs" />
@@ -55,6 +56,8 @@
     <Compile Include="BoyScout\ReviewYourCodeWhenDoneGoals.cs" />
     <Compile Include="BoyScout\VariableRefactorings.cs" />
     <Compile Include="Expansions\ConsumptionConcerns.cs" />
+    <Compile Include="OOP\ConsumerLeakage.cs" />
+    <Compile Include="OOP\PushDown.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AOP\WeightedAverageSampleGoal.cs" />
     <Compile Include="Readable\CodeCleanupSample.cs" />
