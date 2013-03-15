@@ -85,12 +85,12 @@
     <Compile Include="Testing\IntroducingSeamsGoals.cs" />
     <Compile Include="Testing\LearnWhatCodeDoes.cs" />
     <Compile Include="Testing\LearnWhatCodeDoesGoals.cs" />
-    <Compile Include="Understandable\BaseTypeSample.cs" />
-    <Compile Include="Understandable\ChangeSignatureSamples.cs" />
-    <Compile Include="Understandable\MoveTypesSample.cs" />
-    <Compile Include="Understandable\DuplicationSample.cs" />
-    <Compile Include="Understandable\UnusedCodeSample.cs" />
-    <Compile Include="Understandable\UnusedCodeSampleGoal.cs" />
+    <Compile Include="Simplicity\BaseTypeSample.cs" />
+    <Compile Include="Simplicity\ChangeSignatureSamples.cs" />
+    <Compile Include="Simplicity\MoveTypesSample.cs" />
+    <Compile Include="Simplicity\DuplicationSample.cs" />
+    <Compile Include="Simplicity\UnusedCodeSample.cs" />
+    <Compile Include="Simplicity\UnusedCodeSampleGoal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
