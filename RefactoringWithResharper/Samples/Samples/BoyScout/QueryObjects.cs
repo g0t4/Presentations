@@ -45,6 +45,8 @@
             public bool IsPreferred { get; set; }
         }
 
+		// leaving code in services/controllers making them fat!
+
         // extract class from parameters
         // make auto props
         // take out ctor and manually assign each parameter

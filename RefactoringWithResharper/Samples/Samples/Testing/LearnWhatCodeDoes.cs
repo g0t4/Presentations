@@ -21,6 +21,9 @@
             return output;
         }
 
+		// Ctrl + U, R
+		// Ctrl + U, D
+
         // write a test to assert what output contains at each step of algorithm
         // %4 -> contains Derp
         // %6 -> Contains Herp
