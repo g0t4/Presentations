@@ -153,7 +153,7 @@
     border-bottom:;
 }
 
-.tblGenFixed td.s7 {
+.tblGenFixed td.red-dislike {
     background-color: #cc0000;
     font-family: arial, sans, sans-serif;
     font-size: 100.0%;
@@ -170,7 +170,7 @@
     border-bottom:;
 }
 
-.tblGenFixed td.s8 {
+.tblGenFixed td.green-like {
     background-color: #6aa84f;
     font-family: arial, sans, sans-serif;
     font-size: 100.0%;
@@ -237,7 +237,7 @@
     border-bottom:;
 }
 
-.tblGenFixed td.s10 {
+.tblGenFixed td.yellow-soso {
     background-color: #f1c232;
     font-family: arial, sans, sans-serif;
     font-size: 100.0%;
@@ -340,117 +340,117 @@
         <td class="s4">1</td>
         <td dir="ltr" class="s5">OOB</td>
         <td dir="ltr" class="s6">Pyramid of Doom</td>
-        <td dir="ltr" class="s7">Copy Pasta</td>
-        <td dir="ltr" class="s8">Nested scopes</td>
-        <td dir="ltr" class="s7">Manual</td>
-        <td dir="ltr" class="s7">Manual</td>
-        <td dir="ltr" class="s7">Manual</td>
-        <td dir="ltr" class="s7">Marches off screen</td>
-        <td dir="ltr" class="s7">Only innermost step is really extractable without lots of work.</td>
+        <td dir="ltr" class="red-dislike">Copy Pasta</td>
+        <td dir="ltr" class="green-like">Nested scopes</td>
+        <td dir="ltr" class="red-dislike">Manual</td>
+        <td dir="ltr" class="red-dislike">Manual</td>
+        <td dir="ltr" class="red-dislike">Manual</td>
+        <td dir="ltr" class="red-dislike">Marches off screen</td>
+        <td dir="ltr" class="red-dislike">Only innermost step is really extractable without lots of work.</td>
     </tr>
     <tr dir="ltr">
         <td class="hd"><p style="height:16px;">.</p></td>
         <td class="s4">2</td>
         <td dir="ltr" class="s5">CPS</td>
         <td dir="ltr" class="s6">Iced &amp; Tamejs</td>
-        <td dir="ltr" class="s7">Copy Pasta</td>
-        <td dir="ltr" class="s8">Continuation abstraction</td>
+        <td dir="ltr" class="red-dislike">Copy Pasta</td>
+        <td dir="ltr" class="green-like">Continuation abstraction</td>
         <td class="s9"></td>
-        <td dir="ltr" class="s10">Manual: task partitioning</td>
-        <td dir="ltr" class="s8">Group await statements</td>
-        <td dir="ltr" class="s10">Error handling code</td>
-        <td dir="ltr" class="s10">Within context of iced/tamejs</td>
+        <td dir="ltr" class="yellow-soso">Manual: task partitioning</td>
+        <td dir="ltr" class="green-like">Group await statements</td>
+        <td dir="ltr" class="yellow-soso">Error handling code</td>
+        <td dir="ltr" class="yellow-soso">Within context of iced/tamejs</td>
     </tr>
     <tr dir="ltr">
         <td class="hd"><p style="height:16px;">.</p></td>
         <td dir="ltr" class="s11">3a</td>
         <td dir="ltr" class="s12">CF</td>
         <td dir="ltr" class="s6">Step</td>
-        <td dir="ltr" class="s7">Copy Pasta</td>
-        <td dir="ltr" class="s7">variables outside of scope of callbacks</td>
+        <td dir="ltr" class="red-dislike">Copy Pasta</td>
+        <td dir="ltr" class="red-dislike">variables outside of scope of callbacks</td>
         <td class="s9"></td>
-        <td dir="ltr" class="s7">Manual AFAIK</td>
-        <td dir="ltr" class="s10">Step partitioning - do A &amp; B, then C &amp; D</td>
-        <td dir="ltr" class="s10">Callback leakage / error handling</td>
-        <td dir="ltr" class="s10">this as callback</td>
+        <td dir="ltr" class="red-dislike">Manual AFAIK</td>
+        <td dir="ltr" class="yellow-soso">Step partitioning - do A &amp; B, then C &amp; D</td>
+        <td dir="ltr" class="yellow-soso">Callback leakage / error handling</td>
+        <td dir="ltr" class="yellow-soso">this as callback</td>
     </tr>
     <tr dir="ltr">
         <td class="hd"><p style="height:16px;">.</p></td>
         <td dir="ltr" class="s11">3b</td>
         <td class="s13"></td>
         <td dir="ltr" class="s6">Invoke</td>
-        <td dir="ltr" class="s8">Fail handler</td>
-        <td dir="ltr" class="s7">variables outside of scope of callbacks</td>
+        <td dir="ltr" class="green-like">Fail handler</td>
+        <td dir="ltr" class="red-dislike">variables outside of scope of callbacks</td>
         <td class="s9"></td>
-        <td dir="ltr" class="s7">Manual AFAIK</td>
-        <td dir="ltr" class="s10">Step partitioning</td>
-        <td dir="ltr" class="s10">Callback leakage</td>
-        <td dir="ltr" class="s10">odd data array parameter so not quite</td>
+        <td dir="ltr" class="red-dislike">Manual AFAIK</td>
+        <td dir="ltr" class="yellow-soso">Step partitioning</td>
+        <td dir="ltr" class="yellow-soso">Callback leakage</td>
+        <td dir="ltr" class="yellow-soso">odd data array parameter so not quite</td>
     </tr>
     <tr dir="ltr">
         <td class="hd"><p style="height:16px;">.</p></td>
         <td dir="ltr" class="s11">3c</td>
         <td class="s13"></td>
         <td dir="ltr" class="s6">Nue</td>
-        <td dir="ltr" class="s8">Fail handler</td>
-        <td dir="ltr" class="s10">this.data</td>
+        <td dir="ltr" class="green-like">Fail handler</td>
+        <td dir="ltr" class="yellow-soso">this.data</td>
         <td class="s9"></td>
-        <td dir="ltr" class="s7">Manual AFAIK</td>
-        <td dir="ltr" class="s10">Step partitioning</td>
-        <td dir="ltr" class="s10">Callback leakage</td>
-        <td dir="ltr" class="s10">this as callback, 'as' concept</td>
+        <td dir="ltr" class="red-dislike">Manual AFAIK</td>
+        <td dir="ltr" class="yellow-soso">Step partitioning</td>
+        <td dir="ltr" class="yellow-soso">Callback leakage</td>
+        <td dir="ltr" class="yellow-soso">this as callback, 'as' concept</td>
     </tr>
     <tr dir="ltr">
         <td class="hd"><p style="height:16px;">.</p></td>
         <td dir="ltr" class="s11">3d</td>
         <td class="s14"></td>
         <td dir="ltr" class="s6">Async</td>
-        <td dir="ltr" class="s8">Fail handler</td>
-        <td dir="ltr" class="s7">variables outside of scope of callbacks</td>
+        <td dir="ltr" class="green-like">Fail handler</td>
+        <td dir="ltr" class="red-dislike">variables outside of scope of callbacks</td>
         <td class="s9"></td>
-        <td dir="ltr" class="s8">Yes</td>
-        <td dir="ltr" class="s10">Manual: task collections and iteration or step partitioning</td>
-        <td dir="ltr" class="s10">Callback leakage</td>
-        <td dir="ltr" class="s8">Easily copy/paste a step into a separate module</td>
+        <td dir="ltr" class="green-like">Yes</td>
+        <td dir="ltr" class="yellow-soso">Manual: task collections and iteration or step partitioning</td>
+        <td dir="ltr" class="yellow-soso">Callback leakage</td>
+        <td dir="ltr" class="green-like">Easily copy/paste a step into a separate module</td>
     </tr>
     <tr dir="ltr">
         <td class="hd"><p style="height:16px;">.</p></td>
         <td class="s4">4</td>
         <td dir="ltr" class="s5">Promises</td>
         <td dir="ltr" class="s6">Q</td>
-        <td dir="ltr" class="s8">Fail handler</td>
-        <td dir="ltr" class="s7">variables outside of scope of callbacks</td>
-        <td dir="ltr" class="s8">Chainable api</td>
-        <td dir="ltr" class="s10">Manual: task partitioning via chainable api</td>
-        <td dir="ltr" class="s10">Step partitioning</td>
-        <td dir="ltr" class="s10">Callback leakage</td>
-        <td dir="ltr" class="s10">Within context of promises</td>
+        <td dir="ltr" class="green-like">Fail handler</td>
+        <td dir="ltr" class="red-dislike">variables outside of scope of callbacks</td>
+        <td dir="ltr" class="green-like">Chainable api</td>
+        <td dir="ltr" class="yellow-soso">Manual: task partitioning via chainable api</td>
+        <td dir="ltr" class="yellow-soso">Step partitioning</td>
+        <td dir="ltr" class="yellow-soso">Callback leakage</td>
+        <td dir="ltr" class="yellow-soso">Within context of promises</td>
     </tr>
     <tr dir="ltr">
         <td class="hd"><p style="height:16px;">.</p></td>
         <td class="s4">5</td>
         <td dir="ltr" class="s5">CPS</td>
         <td dir="ltr" class="s6">Streamline</td>
-        <td dir="ltr" class="s8">Try/Catch!</td>
-        <td dir="ltr" class="s8">Continuation abstraction</td>
-        <td dir="ltr" class="s8">futures!</td>
-        <td dir="ltr" class="s8">Yes</td>
-        <td dir="ltr" class="s8">Futures!</td>
-        <td dir="ltr" class="s8">Continuation abstraction</td>
-        <td dir="ltr" class="s10">Within context of streamline</td>
+        <td dir="ltr" class="green-like">Try/Catch!</td>
+        <td dir="ltr" class="green-like">Continuation abstraction</td>
+        <td dir="ltr" class="green-like">futures!</td>
+        <td dir="ltr" class="green-like">Yes</td>
+        <td dir="ltr" class="green-like">Futures!</td>
+        <td dir="ltr" class="green-like">Continuation abstraction</td>
+        <td dir="ltr" class="yellow-soso">Within context of streamline</td>
     </tr>
     <tr dir="ltr">
         <td class="hd"><p style="height:16px;">.</p></td>
         <td class="s4">6</td>
         <td dir="ltr" class="s5">CPS</td>
         <td dir="ltr" class="s6">c# 5 await</td>
-        <td dir="ltr" class="s8">Try/Catch!</td>
-        <td dir="ltr" class="s8">Continuation abstraction</td>
-        <td dir="ltr" class="s8">futures! (called tasks)</td>
-        <td dir="ltr" class="s8">Multithreaded TPL backend!</td>
-        <td dir="ltr" class="s8">Futures!</td>
-        <td dir="ltr" class="s8">Continuation abstraction</td>
-        <td dir="ltr" class="s8">Language level support</td>
+        <td dir="ltr" class="green-like">Try/Catch!</td>
+        <td dir="ltr" class="green-like">Continuation abstraction</td>
+        <td dir="ltr" class="green-like">futures! (called tasks)</td>
+        <td dir="ltr" class="green-like">Multithreaded TPL backend!</td>
+        <td dir="ltr" class="green-like">Futures!</td>
+        <td dir="ltr" class="green-like">Continuation abstraction</td>
+        <td dir="ltr" class="green-like">Language level support</td>
     </tr>
     <tr dir="ltr">
         <td class="hd"><p style="height:16px;">.</p></td>
