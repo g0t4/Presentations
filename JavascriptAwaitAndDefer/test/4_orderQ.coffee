@@ -4,36 +4,42 @@ emailer = require "../emailer"
 Q = require "q"
 
 module.exports = (test) ->
-  connect = (callback) ->
-    return mongodb.connect "mongodb://localhost/awaitdefer", callback
+  connect = () ->
+    return Q.nfcall(mongodb.connect, "mongodb://localhost/awaitdefer")
 
   db = null
-  lookupOrder = (_db, callback)->
+  lookupOrder = (_db)->
     db = _db
     orderId = 1
-    db.collection("orders").findOne orderId, callback
-    return
+    return Q.nfcall(db.collection("orders").findOne.bind(db.collection("orders")), orderId)
 
-  getUser = (order, cb) ->
-    db.collection("users").findOne order.customer.id, cb
+  queryEmailDetails = (order) ->
+    tasks = [
+      order,
+      Q.nfcall(db.collection("users").findOne.bind(db.collection("users")), order.customer.id),
+      Q.nfcall(tracking.track, order.trackingId)
+    ]
+    return tasks
 
-  getTrackingInformation = (order, cb) ->
-    tracking.track order.trackingId, cb
-
-  sendEmail = (order, user, trackingInformation, callback) ->
+  sendEmail = (order, user, trackingInformation) ->
     db.close()
     message =
       subject: "Order: " + order.name
       email: user.email
       body: "Tracking: " + trackingInformation
-    emailer.sendEmail message, callback
-    return
+    return Q.nfcall(emailer.sendEmail, message)
 
-  Q.nfcall(connect)
-    .then(Q.nfbind(lookupOrder))
-    .then((order) ->
-           [order, Q.nfcall(getUser, order), Q.nfcall(getTrackingInformation, order)])
-    .spread(Q.nfbind(sendEmail))
+  connect()
+    .then(lookupOrder)
+    .then(queryEmailDetails)
+    .spread(sendEmail)
     .fail(test.fail)
-    .then(()->
-           test.done())
+    .finally(()->
+              db.close() if db?
+              test.done())
+
+  return
+
+## My style - separate out steps into named functions for readability
+## use callback style for steps, could have embraced promises
+## extract parallel tasks (could be inlined too)
