@@ -40,3 +40,5 @@ module.exports = (test) ->
                     queryEmailDetails
                     sendEmail
                   ], end)
+
+## My style - separate out steps into named functions for readability
