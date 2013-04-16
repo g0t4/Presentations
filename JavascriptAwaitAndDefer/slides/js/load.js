@@ -11,5 +11,7 @@ Reveal.initialize({
     mouseWheel: false,
     rollingLinks: true,
     transition: 'cube', // default/cube/page/concave/zoom/linear/fade/none
-    transitionSpeed: 'default', // default/fast/slow
+    transitionSpeed: 'default' // default/fast/slow
 });
+
+prettyPrint();
