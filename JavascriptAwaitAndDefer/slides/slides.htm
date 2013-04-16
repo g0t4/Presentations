@@ -1,20 +1,128 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/beige.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Single Horizontal Slide</section>
-				<section>
-					<section>Vertical Slide 1</section>
-					<section>Vertical Slide 2</section>
-				</section>
-			</div>
-		</div>
-		<script src="js/reveal.min.js"></script>
-		<script src="js/load.js"></script>
-	</body>
+<head>
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/beige.css">
+    <link rel="stylesheet" href="js/prettify/prettify.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>Control Flow Techniques</h2>
+
+            <div>IcedCoffeeScript and TameJs</div>
+            <br/>
+
+            <div>Wes McClure</div>
+            <div>@g0t4</div>
+            <div>Full City Tech Co.</div>
+        </section>
+        <section>
+            <section><h2>Scenario</h2><pre>
+
+                // get order
+                // get email address and tracking
+                // send status email
+
+                subject: 'Order: Treadmill',
+                email: 'bob@jones.com',
+                body: 'Tracking: Package in transit'
+            </pre>
+            </section>
+        </section>
+        <section>
+            <section><h2>Pyramid of Doom</h2></section>
+            <section class="bad">Error handling - copy pasta</section>
+            <section class="bad">Readable</section>
+            <section class="bad">Refactoring</section>
+            <section class="bad">Parallelism</section>
+            <section class="bad">Control iteration parallelism</section>
+            <section class="bad">Control individual task parallelism</section>
+        </section>
+        <section>
+            <section><h2>Scoring</h2></section>
+            <section class="good">Good</section>
+            <section class="caution">Caution</section>
+            <section class="bad">Bad</section>
+        </section>
+        <section>
+            <section><h2>Async (Control Flow)</h2></section>
+            <section class="good">Error handling</section>
+            <section class="caution">Readable - callback leakage</section>
+            <section class="good">Refactoring</section>
+            <section class="good">Parallelism</section>
+            <section class="good">
+                <div>Control iteration parallelism</div>
+                <a href="https://github.com/caolan/async#mapLimit">mapLimit</a>
+            </section>
+            <section class="caution">
+                Control individual task parallelism - task collection or step partitioning
+            </section>
+            <section class="bad">New problem - Shared variable scope</section>
+        </section>
+        <section>
+            <section><h2>Q (Promises)</h2></section>
+            <section class="good">Error handling
+                <pre>fail(handler)</pre>
+            </section>
+            <section class="caution">Readable - callback leakage</section>
+            <section class="caution">Refactoring - intra module</section>
+            <section class="good">Parallelism</section>
+            <section class="caution">Control iteration parallelism -
+                <pre>promises.partition(limit)</pre>
+            </section>
+            <section class="caution">Control individual task parallelism - step partitioning</section>
+            <section class="bad">Shared variable scope</section>
+        </section>
+        <section>
+            <section><h2>IcedCoffeeScript & TameJS</h2></section>
+            <section class="bad">Error handling - copy pasta</section>
+            <section class="caution">Readable - explicit error handling</section>
+            <section class="caution">Refactoring - intra module</section>
+            <section class="good">Parallelism</section>
+            <section class="caution">Control iteration parallelism - task partitioning</section>
+            <section class="good">Control individual task parallelism - group await statements</section>
+            <section class="good">Shared variable scope</section>
+        </section>
+        <section>
+            <section><h2>Streamlinejs / cs</h2></section>
+            <section class="good">Error handling - try/catch!</section>
+            <section class="good">Readable</section>
+            <section class="caution">Refactoring - intra module</section>
+            <section class="good">Parallelism</section>
+            <section class="good">Control iteration parallelism - futures/flows</section>
+            <section class="good">Control individual task parallelism - futures</section>
+            <section class="good">Shared variable scope</section>
+        </section>
+        <section>
+            <section><h2>CoffeeScript backcalls - proposed</h2></section>
+            <section class="bad">Error handling - copy pasta</section>
+            <section class="good">Readable</section>
+            <section class="good">Refactoring - language support</section>
+            <section class="bad">Parallelism - not proposed</section>
+            <section class="bad">Control iteration parallelism - not proposed</section>
+            <section class="bad">Control individual task parallelism - not proposed</section>
+            <section class="good">Shared variable scope</section>
+        </section>
+        <section>
+            <section>
+                <h2>Recommendations</h2>
+            </section>
+            <section>
+                <div>Callbacks at module boundaries</div>
+                <a href="http://www.futurealoof.com/posts/broken-promises.html">Broken Promises</a>
+            </section>
+            <section>Intra module - your flavor</section>
+            <section>Make Criteria Your Own</section>
+            <section>Watch Language Support</section>
+        </section>
+    </div>
+</div>
+<script src="js/reveal.min.js"></script>
+<script src="js/prettify/prettify.js"></script>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/load.js"></script>
+</body>
 </html>

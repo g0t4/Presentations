@@ -1,0 +1,29 @@
+.reveal.overview .slides section .bad,
+.bad {
+    background-color: #F78181;
+}
+
+html.bad body {
+    background-color: #F78181;
+    background-image: none;
+}
+
+.reveal.overview .slides section .good,
+.good {
+    background-color: #A9F5A9;
+}
+
+html.good body {
+    background-color: #A9F5A9;
+    background-image: none;
+}
+
+.reveal.overview .slides section .caution,
+.caution {
+    background-color: #F2F5A9;
+}
+
+html.caution body {
+    background-color: #F2F5A9;
+    background-image: none;
+}
