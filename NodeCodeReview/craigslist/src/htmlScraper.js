@@ -22,8 +22,6 @@ exports.scrapeListings = function(text, params) {
       return false;
     }
 
-    var item = {};
-
     date = element.find('.itemdate').text().trim();
 
     if (!date || date == '') {
@@ -35,6 +33,7 @@ exports.scrapeListings = function(text, params) {
       }
     }
 
+    var item = {};
     if (date && date != '') {
       item.publishedAt = moment(date).toDate();
 
