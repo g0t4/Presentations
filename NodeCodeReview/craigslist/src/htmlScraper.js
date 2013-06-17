@@ -23,6 +23,9 @@ function getBedrooms(element) {
 function getFootage(element) {
   return getListingDetails(element).split(/ *[-\/] */g)[2];
 }
+function getHasPicture(element) {
+  return !!element.find('.itempx').text().trim().match('pic');
+}
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
   var result = [];
@@ -61,8 +64,6 @@ exports.scrapeListings = function(text, params) {
       }
     }
 
-    var hasPic = !!element.find('.itempx').text().trim().match('pic');
-
     item.postId = postId;
     item.title = getTitle(element);
     item.url = getUrl(element);
@@ -72,7 +73,7 @@ exports.scrapeListings = function(text, params) {
     if (bedrooms) item.bedrooms = bedrooms;
     var footage = getFootage(element);
     if (footage) item.footage = footage;
-    item.hasPic = hasPic;
+    item.hasPic = getHasPicture(element);
 
     result.push(item);
   });
