@@ -16,9 +16,9 @@ exports.scrapeListings = function(text, params) {
   $('#toc_rows .row').each(function(index, element) {
     element = $(element)
 
-    var id = getPostId(element);
+    var postId = getPostId(element);
 
-    if (didBreak || (params.postId && id === params.postId)) {
+    if (didBreak || (params.postId && postId === params.postId)) {
       didBreak = true;
       return false;
     }
@@ -49,7 +49,7 @@ exports.scrapeListings = function(text, params) {
     var footage = offerArray[2];
     var hasPic = !!element.find('.itempx').text().trim().match('pic');
 
-    item.postId = id;
+    item.postId = postId;
 
     var link = element.find('a');
     item.title = link.text().trim();
