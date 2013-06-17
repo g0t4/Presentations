@@ -43,12 +43,11 @@ function getDate(element, previousDate) {
   return undefined;
 }
 exports.scrapeListings = function(text, params) {
-  var $ = cheerio.load(text);
   var listings = [];
   var previousDate;
-
   var didBreak = false;
 
+  var $ = cheerio.load(text);
   $('#toc_rows .row').each(function(index, element) {
     element = $(element)
 
@@ -76,5 +75,6 @@ exports.scrapeListings = function(text, params) {
 
     listings.push(listing);
   });
+  
   return listings;
 }
