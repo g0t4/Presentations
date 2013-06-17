@@ -4,7 +4,6 @@ var moment = require('moment');
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
   var result = [];
-  var item;
   var date;
   var previousDate;
 
