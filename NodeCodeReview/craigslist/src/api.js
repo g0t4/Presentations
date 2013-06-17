@@ -83,7 +83,7 @@ exports.getListHTML = function(url, params, callback) {
   }
 
   exports.get(url, function(response) {
-    var result = htmlScarper.scrapeListings(response, params);
+    var result = htmlScarper.scrapeListings(response.text, params);
     if (callback) callback(null, result);
   });
 }

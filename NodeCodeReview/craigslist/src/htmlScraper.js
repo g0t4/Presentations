@@ -1,8 +1,8 @@
 var cheerio = require('cheerio');
 var moment = require('moment');
 
-exports.scrapeListings = function(response, params) {
-  var $ = cheerio.load(response.text)
+exports.scrapeListings = function(text, params) {
+  var $ = cheerio.load(text)
     , result = []
     , item, date, previousDate;
 
@@ -48,7 +48,6 @@ exports.scrapeListings = function(response, params) {
 
     var offer = element.find('.itemph').text().trim().replace(/ +-$/, '')
       , offerArray = offer.split(/ *[-\/] */g)
-      , price = offerArray[0]
       , bedrooms = offerArray[1]
       , footage = offerArray[2]
       , hasPic = !!element.find('.itempx').text().trim().match('pic');
@@ -57,7 +56,7 @@ exports.scrapeListings = function(response, params) {
     item.title = title;
     item.url = url;
     //item.offer = offer;
-    item.price = price;
+    item.price = element.find('.price').text();
     if (bedrooms) item.bedrooms = bedrooms;
     if (footage) item.footage = footage;
     item.hasPic = hasPic;

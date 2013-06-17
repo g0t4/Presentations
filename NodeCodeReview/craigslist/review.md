@@ -13,4 +13,9 @@ setup code styles and format code consistently
 add test of getListings
 
 extract html scraper
-    add test
+    add test - html with one listing - should have one listing
+      require('fs').writeFileSync('listings.html', text);
+    add broken test - html with one listing - should have price
+      fix missing price
+
+could go on about virtues of testing
