@@ -1,0 +1,15 @@
+{
+    "name": "misc",
+    "version": "0.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "devDependencies": {
+        "chai": "~1.6.1",
+        "mocha": "~1.11.0"
+    },
+    "repository": "https://github.com/g0t4/Presentations",
+    "readme": "blah"
+}
