@@ -46,11 +46,11 @@ exports.scrapeListings = function(text, params) {
     var hasPic = !!element.find('.itempx').text().trim().match('pic');
 
     item.postId = id;
+
     var link = element.find('a');
-    var title = link.text().trim();
-    var url = link.attr('href');
-    item.title = title;
-    item.url = url;
+    item.title = link.text().trim();
+    item.url = link.attr('href');
+
     item.price = element.find('.price').text();
     if (bedrooms) item.bedrooms = bedrooms;
     if (footage) item.footage = footage;
