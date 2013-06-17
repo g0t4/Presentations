@@ -8,6 +8,12 @@ function getPostId(element) {
 function getPrice(element) {
   return element.find('.price').text();
 }
+function getTitle(element) {
+  return element.find('a').text().trim();
+}
+function getUrl(element) {
+  return element.find('a').attr('href');
+}
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
   var result = [];
@@ -53,13 +59,10 @@ exports.scrapeListings = function(text, params) {
     var hasPic = !!element.find('.itempx').text().trim().match('pic');
 
     item.postId = postId;
-
-    var link = element.find('a');
-    item.title = link.text().trim();
-    item.url = link.attr('href');
-
+    item.title = getTitle(element);
+    item.url = getUrl(element);
     item.price = getPrice(element);
-    
+
     if (bedrooms) item.bedrooms = bedrooms;
     if (footage) item.footage = footage;
     item.hasPic = hasPic;
