@@ -8,3 +8,4 @@ getEachListing
 
 setup code styles and format code consistently
     point out differences
+    not perfect - preceding comma style collapse to one line

@@ -12,7 +12,9 @@ cheerio.prototype.make = function(dom, context) {
 };
 
 exports.headers = {
-  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
+  'Cache-Control': 'no-cache',
+  'Pragma': 'no-cache'
 }
 
 exports.get = function(url, callback) {
@@ -57,7 +59,14 @@ exports.getListRSS = function(url, callback) {
         article.footage = footage;
 
         result.push({
-          title: title, description: article.description, publishedAt: article.pubDate, url: article.link, cities: cities, price: price, bedrooms: bedrooms, footage: footage
+          title: title,
+          description: article.description,
+          publishedAt: article.pubDate,
+          url: article.link,
+          cities: cities,
+          price: price,
+          bedrooms: bedrooms,
+          footage: footage
         });
       })
       .on('complete', function(feed) {
