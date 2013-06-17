@@ -17,6 +17,12 @@ function getUrl(element) {
 function getListingDetails(element) {
   return element.find('.itemph').text().trim().replace(/ +-$/, '');
 }
+function getBedrooms(element) {
+  return getListingDetails(element).split(/ *[-\/] */g)[1];
+}
+function getFootage(element) {
+  return getListingDetails(element).split(/ *[-\/] */g)[2];
+}
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
   var result = [];
@@ -54,10 +60,7 @@ exports.scrapeListings = function(text, params) {
         previousDate = item.publishedAt;
       }
     }
-    var details = getListingDetails(element);
-    var offerArray = details.split(/ *[-\/] */g);
-    var bedrooms = offerArray[1];
-    var footage = offerArray[2];
+
     var hasPic = !!element.find('.itempx').text().trim().match('pic');
 
     item.postId = postId;
@@ -65,7 +68,9 @@ exports.scrapeListings = function(text, params) {
     item.url = getUrl(element);
     item.price = getPrice(element);
 
+    var bedrooms = getBedrooms(element);
     if (bedrooms) item.bedrooms = bedrooms;
+    var footage = getFootage(element);
     if (footage) item.footage = footage;
     item.hasPic = hasPic;
 
