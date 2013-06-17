@@ -15,9 +15,7 @@ exports.scrapeListings = function(text, params) {
     var link = element.find('a');
     var title = link.text().trim();
     var url = link.attr('href');
-
-    var id = url.split('/');
-    id = id[id.length - 1].replace(/.html$/i, '');
+    var id = element.attr('data-pid');
 
     if (didBreak || (params.postId && id === params.postId)) {
       didBreak = true;
