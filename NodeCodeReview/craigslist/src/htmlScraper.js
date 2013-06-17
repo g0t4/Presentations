@@ -29,7 +29,6 @@ function getHasPicture(element) {
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
   var result = [];
-  var date;
   var previousDate;
 
   var didBreak = false;
@@ -44,7 +43,7 @@ exports.scrapeListings = function(text, params) {
       return false;
     }
 
-    date = element.find('.itemdate').text().trim();
+    var date = element.find('.itemdate').text().trim();
 
     if (!date || date == '') {
       var prev = element.prev();
