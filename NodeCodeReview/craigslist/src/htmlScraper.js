@@ -14,6 +14,9 @@ function getTitle(element) {
 function getUrl(element) {
   return element.find('a').attr('href');
 }
+function getListingDetails(element) {
+  return element.find('.itemph').text().trim().replace(/ +-$/, '');
+}
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
   var result = [];
@@ -51,9 +54,8 @@ exports.scrapeListings = function(text, params) {
         previousDate = item.publishedAt;
       }
     }
-
-    var offer = element.find('.itemph').text().trim().replace(/ +-$/, '');
-    var offerArray = offer.split(/ *[-\/] */g);
+    var details = getListingDetails(element);
+    var offerArray = details.split(/ *[-\/] */g);
     var bedrooms = offerArray[1];
     var footage = offerArray[2];
     var hasPic = !!element.find('.itempx').text().trim().match('pic');
