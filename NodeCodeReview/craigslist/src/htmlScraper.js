@@ -24,7 +24,6 @@ exports.scrapeListings = function(text, params) {
 
     var item = {};
 
-    // date
     date = element.find('.itemdate').text().trim();
 
     if (!date || date == '') {
