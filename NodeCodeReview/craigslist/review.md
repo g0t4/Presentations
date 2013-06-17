@@ -19,3 +19,5 @@ extract html scraper
       fix missing price
 
 could go on about virtues of testing
+
+review commit log for step by step refactorings -> shows personal style and readability opinions
