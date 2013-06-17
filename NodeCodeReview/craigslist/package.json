@@ -1,0 +1,19 @@
+{
+  "name": "craigslist",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "superagent": "~0.14.9",
+    "cheerio": "~0.12.0",
+    "moment": "~2.0.0",
+    "feedparser": "~0.16.1",
+    "underscore": "~1.4.4"
+  },
+  "devDependencies": {
+    "chai": "~1.6.1",
+    "mocha": "~1.11.0"
+  },
+  "repository": "https://github.com/g0t4/Presentations",
+  "readme": "blah"
+}
