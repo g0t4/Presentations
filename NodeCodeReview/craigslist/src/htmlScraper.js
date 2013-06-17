@@ -1,6 +1,10 @@
 var cheerio = require('cheerio');
 var moment = require('moment');
 
+function getPostId(element) {
+  return element.attr('data-pid');
+}
+
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
   var result = [];
@@ -12,7 +16,7 @@ exports.scrapeListings = function(text, params) {
   $('#toc_rows .row').each(function(index, element) {
     element = $(element)
 
-    var id = element.attr('data-pid');
+    var id = getPostId(element);
 
     if (didBreak || (params.postId && id === params.postId)) {
       didBreak = true;
