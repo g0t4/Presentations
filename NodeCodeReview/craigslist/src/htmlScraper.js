@@ -5,6 +5,9 @@ function getPostId(element) {
   return element.attr('data-pid');
 }
 
+function getPrice(element) {
+  return element.find('.price').text();
+}
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
   var result = [];
@@ -55,7 +58,8 @@ exports.scrapeListings = function(text, params) {
     item.title = link.text().trim();
     item.url = link.attr('href');
 
-    item.price = element.find('.price').text();
+    item.price = getPrice(element);
+    
     if (bedrooms) item.bedrooms = bedrooms;
     if (footage) item.footage = footage;
     item.hasPic = hasPic;
