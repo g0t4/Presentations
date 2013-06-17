@@ -11,5 +11,6 @@ setup code styles and format code consistently
     not perfect - preceding comma style collapse to one line
 
 add test of getListings
-    npm init
-    npm install mocha
+
+extract html scraper
+    add test
