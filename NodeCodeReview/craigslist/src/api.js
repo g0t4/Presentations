@@ -75,21 +75,6 @@ exports.getListRSS = function(url, callback) {
   });
 }
 
-exports.getEachListing = function(listings, callback) {
-  var i = -1, n = listings.length;
-
-  function iterate() {
-    i++;
-    if (i < n) {
-      exports.getListing(listings[i], iterate);
-    } else {
-      if (callback) callback(null, listings);
-    }
-  }
-
-  iterate();
-}
-
 exports.getListHTML = function(url, params, callback) {
   if (typeof params == 'function') {
     callback = params;
