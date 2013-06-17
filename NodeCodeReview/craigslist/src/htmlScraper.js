@@ -56,7 +56,6 @@ exports.scrapeListings = function(text, params) {
     item.postId = id;
     item.title = title;
     item.url = url;
-    //item.offer = offer;
     item.price = element.find('.price').text();
     if (bedrooms) item.bedrooms = bedrooms;
     if (footage) item.footage = footage;
