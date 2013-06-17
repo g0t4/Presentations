@@ -2,19 +2,21 @@ var cheerio = require('cheerio');
 var moment = require('moment');
 
 exports.scrapeListings = function(text, params) {
-  var $ = cheerio.load(text)
-    , result = []
-    , item, date, previousDate;
+  var $ = cheerio.load(text);
+  var result = [];
+  var item;
+  var date;
+  var previousDate;
 
   var didBreak = false;
 
   $('#toc_rows .row').each(function(index, element) {
     element = $(element)
 
-    var link = element.find('a')
-      , title = link.text().trim()
-      , url = link.attr('href')
-      , id;
+    var link = element.find('a');
+    var title = link.text().trim();
+    var url = link.attr('href');
+    var id;
 
     id = url.split('/');
     id = id[id.length - 1].replace(/.html$/i, '');
@@ -46,11 +48,11 @@ exports.scrapeListings = function(text, params) {
       }
     }
 
-    var offer = element.find('.itemph').text().trim().replace(/ +-$/, '')
-      , offerArray = offer.split(/ *[-\/] */g)
-      , bedrooms = offerArray[1]
-      , footage = offerArray[2]
-      , hasPic = !!element.find('.itempx').text().trim().match('pic');
+    var offer = element.find('.itemph').text().trim().replace(/ +-$/, '');
+    var offerArray = offer.split(/ *[-\/] */g);
+    var bedrooms = offerArray[1];
+    var footage = offerArray[2];
+    var hasPic = !!element.find('.itempx').text().trim().match('pic');
 
     item.postId = id;
     item.title = title;
