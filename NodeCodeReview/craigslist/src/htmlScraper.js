@@ -55,7 +55,16 @@ exports.scrapeListings = function(text, params) {
       }
     }
 
-    var item = {};
+    var item = {
+      postId: postId,
+      title: getTitle(element),
+      url: getUrl(element),
+      price: getPrice(element),
+      bedrooms: getBedrooms(element),
+      footage: getFootage(element),
+      hasPic: getHasPicture(element)
+    };
+
     if (date && date != '') {
       item.publishedAt = moment(date).toDate();
 
@@ -63,14 +72,6 @@ exports.scrapeListings = function(text, params) {
         previousDate = item.publishedAt;
       }
     }
-
-    item.postId = postId;
-    item.title = getTitle(element);
-    item.url = getUrl(element);
-    item.price = getPrice(element);
-    item.bedrooms = getBedrooms(element);
-    item.footage = getFootage(element);
-    item.hasPic = getHasPicture(element);
 
     result.push(item);
   });
