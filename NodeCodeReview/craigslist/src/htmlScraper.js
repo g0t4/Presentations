@@ -37,7 +37,10 @@ function getDate(element, previousDate) {
       date = previousDate;
     }
   }
-  return date;
+  if (date && date != '') {
+    return moment(date).toDate();
+  }
+  return undefined;
 }
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
@@ -63,16 +66,12 @@ exports.scrapeListings = function(text, params) {
       price: getPrice(element),
       bedrooms: getBedrooms(element),
       footage: getFootage(element),
-      hasPic: getHasPicture(element)
+      hasPic: getHasPicture(element),
+      publishedAt: getDate(element, previousDate)
     };
 
-    var date = getDate(element, previousDate);
-    if (date && date != '') {
-      listing.publishedAt = moment(date).toDate();
-
-      if (!previousDate) {
-        previousDate = listing.publishedAt;
-      }
+    if (!previousDate) {
+      previousDate = listing.publishedAt;
     }
 
     result.push(listing);

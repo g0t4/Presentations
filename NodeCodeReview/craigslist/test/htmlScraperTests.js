@@ -29,5 +29,10 @@ describe('html scraper', function() {
       expect(listings[0].url).to.equal('/see/apa/1234.html');
     });
 
+    it('should have the date', function() {
+      var expectedDate = new Date('2001-06-17T05:00:00Z');
+      expect(listings[0].publishedAt).to.eql(expectedDate);
+    });
+
   })
 })
