@@ -68,11 +68,8 @@ exports.scrapeListings = function(text, params) {
     item.title = getTitle(element);
     item.url = getUrl(element);
     item.price = getPrice(element);
-
-    var bedrooms = getBedrooms(element);
-    if (bedrooms) item.bedrooms = bedrooms;
-    var footage = getFootage(element);
-    if (footage) item.footage = footage;
+    item.bedrooms = getBedrooms(element);
+    item.footage = getFootage(element);
     item.hasPic = getHasPicture(element);
 
     result.push(item);
