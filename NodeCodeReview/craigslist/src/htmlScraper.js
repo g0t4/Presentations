@@ -44,7 +44,7 @@ function getDate(element, previousDate) {
 }
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
-  var result = [];
+  var listings = [];
   var previousDate;
 
   var didBreak = false;
@@ -74,7 +74,7 @@ exports.scrapeListings = function(text, params) {
       previousDate = listing.publishedAt;
     }
 
-    result.push(listing);
+    listings.push(listing);
   });
-  return result;
+  return listings;
 }
