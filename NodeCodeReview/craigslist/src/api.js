@@ -1,5 +1,3 @@
-// http://josscrowcroft.github.com/open-exchange-rates/
-
 var agent = require('superagent')
   , cheerio = require('cheerio')
   , moment = require('moment')
@@ -17,10 +15,6 @@ exports.headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
   , 'Cache-Control': 'no-cache'
   , 'Pragma': 'no-cache'
-}
-
-exports.patterns = {
-  currency: /\$[+-]?[0-9]{1,3}(?:[0-9]*(?:[.,][0-9]{2})?|(?:,[0-9]{3})*(?:\.[0-9]{2})?|(?:\.[0-9]{3})*(?:,[0-9]{2})?)/
 }
 
 exports.get = function(url, callback) {
