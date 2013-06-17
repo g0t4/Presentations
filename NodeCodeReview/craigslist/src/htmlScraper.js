@@ -55,7 +55,7 @@ exports.scrapeListings = function(text, params) {
       }
     }
 
-    var item = {
+    var listing = {
       postId: postId,
       title: getTitle(element),
       url: getUrl(element),
@@ -66,14 +66,14 @@ exports.scrapeListings = function(text, params) {
     };
 
     if (date && date != '') {
-      item.publishedAt = moment(date).toDate();
+      listing.publishedAt = moment(date).toDate();
 
       if (!previousDate) {
-        previousDate = item.publishedAt;
+        previousDate = listing.publishedAt;
       }
     }
 
-    result.push(item);
+    result.push(listing);
   });
   return result;
 }
