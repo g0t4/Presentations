@@ -5,16 +5,14 @@ var agent = require('superagent')
   , _ = require('underscore');
 
 cheerio.prototype.make = function(dom, context) {
-  if(dom.cheerio) return dom;
+  if (dom.cheerio) return dom;
   dom = (_.isArray(dom)) ? dom : [dom];
   context || (context = new cheerio())
-  return _.extend(context, dom, { length : dom.length, find: context.find });
+  return _.extend(context, dom, { length: dom.length, find: context.find });
 };
 
 exports.headers = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
-  , 'Cache-Control': 'no-cache'
-  , 'Pragma': 'no-cache'
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'
 }
 
 exports.get = function(url, callback) {
@@ -59,14 +57,7 @@ exports.getListRSS = function(url, callback) {
         article.footage = footage;
 
         result.push({
-            title: title
-          , description: article.description
-          , publishedAt: article.pubDate
-          , url: article.link
-          , cities: cities
-          , price: price
-          , bedrooms: bedrooms
-          , footage: footage
+          title: title, description: article.description, publishedAt: article.pubDate, url: article.link, cities: cities, price: price, bedrooms: bedrooms, footage: footage
         });
       })
       .on('complete', function(feed) {
@@ -171,7 +162,7 @@ exports.getListing = function(url, callback) {
     // Date: 2012-11-09, 10:19PM PST
     listing.publishedAt = moment(date, 'YYYY-MM-DD hh:mmA Z').toDate();
 
-    function extractCoordinates() {    
+    function extractCoordinates() {
       var coordinates = $('#leaflet')
         , lat = coordinates.attr('data-latitude')
         , lng = coordinates.attr('data-longitude');
