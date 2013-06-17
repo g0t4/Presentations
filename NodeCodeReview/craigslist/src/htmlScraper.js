@@ -12,9 +12,6 @@ exports.scrapeListings = function(text, params) {
   $('#toc_rows .row').each(function(index, element) {
     element = $(element)
 
-    var link = element.find('a');
-    var title = link.text().trim();
-    var url = link.attr('href');
     var id = element.attr('data-pid');
 
     if (didBreak || (params.postId && id === params.postId)) {
@@ -49,6 +46,9 @@ exports.scrapeListings = function(text, params) {
     var hasPic = !!element.find('.itempx').text().trim().match('pic');
 
     item.postId = id;
+    var link = element.find('a');
+    var title = link.text().trim();
+    var url = link.attr('href');
     item.title = title;
     item.url = url;
     item.price = element.find('.price').text();
