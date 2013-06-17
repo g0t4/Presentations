@@ -26,6 +26,19 @@ function getFootage(element) {
 function getHasPicture(element) {
   return !!element.find('.itempx').text().trim().match('pic');
 }
+function getDate(element, previousDate) {
+  var date = element.find('.itemdate').text().trim();
+
+  if (!date || date == '') {
+    var prev = element.prev();
+    if (prev && prev[0].name.match(/h/i) && prev.hasClass('ban')) {
+      date = prev.text().trim()
+    } else {
+      date = previousDate;
+    }
+  }
+  return date;
+}
 exports.scrapeListings = function(text, params) {
   var $ = cheerio.load(text);
   var result = [];
@@ -43,17 +56,6 @@ exports.scrapeListings = function(text, params) {
       return false;
     }
 
-    var date = element.find('.itemdate').text().trim();
-
-    if (!date || date == '') {
-      var prev = element.prev();
-      if (prev && prev[0].name.match(/h/i) && prev.hasClass('ban')) {
-        date = prev.text().trim()
-      } else {
-        date = previousDate;
-      }
-    }
-
     var listing = {
       postId: postId,
       title: getTitle(element),
@@ -64,6 +66,7 @@ exports.scrapeListings = function(text, params) {
       hasPic: getHasPicture(element)
     };
 
+    var date = getDate(element, previousDate);
     if (date && date != '') {
       listing.publishedAt = moment(date).toDate();
 
