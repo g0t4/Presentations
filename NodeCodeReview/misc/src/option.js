@@ -4,6 +4,7 @@ Option = module.exports = function (parameters) {
     option.callOrPut = parameters.callOrPut;
     option.strike = parameters.strike || 0;
     option.quantity = parameters.quantity || 0;
+    option.premium = parameters.premium || 0;
     return option;
 };
 
