@@ -53,4 +53,17 @@ describe('html scraper', function() {
       expect(listing.longitude).to.eql('-100');
     });
   })
+
+  describe('listing with footage and bedrooms', function() {
+    var html = fs.readFileSync('test/listingWithFootageAndBedrooms.html');
+    var listing = htmlScraper.scrapeListings(html, 'http://seattle.craigslist.org/', {})[0];
+
+    it('should parse the footage', function() {
+      expect(listing.footage).to.eql('1000ft²');
+    });
+
+    it('should parse the bedrooms', function() {
+      expect(listing.bedrooms).to.eql('2br');
+    });
+  })
 })

@@ -20,15 +20,15 @@ function getUrl(element, url) {
 }
 
 function getListingDetails(element) {
-  return element.find('.itemph').text().trim().replace(/ +-$/, '');
+  return element.find('.pnr').text().trim().split(/ *[-\/] */g);
 }
 
 function getBedrooms(element) {
-  return getListingDetails(element).split(/ *[-\/] */g)[1];
+  return getListingDetails(element)[1];
 }
 
 function getFootage(element) {
-  return getListingDetails(element).split(/ *[-\/] */g)[2];
+  return getListingDetails(element)[2];
 }
 
 function getHasPicture(element) {
