@@ -8,7 +8,7 @@ describe('html scraper', function() {
 
   describe('html with one listing', function() {
     var htmlWithOneListing = fs.readFileSync('test/oneListing.html');
-    var listings = htmlScraper.scrapeListings(htmlWithOneListing, {});
+    var listings = htmlScraper.scrapeListings(htmlWithOneListing, 'http://seattle.craigslist.org/', {});
 
     it('should have one listing', function() {
       expect(listings.length).to.equal(1);
@@ -26,8 +26,8 @@ describe('html scraper', function() {
       expect(listings[0].title).to.equal('OMG THE BEST APARTMENT EVAR NO LIES!!!');
     });
 
-    it('should have the url', function() {
-      expect(listings[0].url).to.equal('/see/apa/1234.html');
+    it('parse the url and append the host', function() {
+      expect(listings[0].url).to.eql('http://seattle.craigslist.org/see/apa/1234.html');
     });
 
     it('should have the date', function() {
@@ -42,7 +42,7 @@ describe('html scraper', function() {
 
   describe('listing with location', function() {
     var listingWithLocation = fs.readFileSync('test/listingWithLocation.html');
-    var listings = htmlScraper.scrapeListings(listingWithLocation, '', {});
+    var listings = htmlScraper.scrapeListings(listingWithLocation, 'http://seattle.craigslist.org/', {});
     var listing = listings[0];
 
     it('should parse the latitude', function() {

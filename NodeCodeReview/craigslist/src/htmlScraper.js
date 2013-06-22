@@ -1,5 +1,6 @@
 var cheerio = require('cheerio');
 var moment = require('moment');
+var Url = require('url');
 
 function getPostId(element) {
   return element.attr('data-pid');
@@ -13,8 +14,9 @@ function getTitle(element) {
   return element.find('a').text().trim();
 }
 
-function getUrl(element) {
-  return element.find('a').attr('href');
+function getUrl(element, url) {
+  var relativeUrl = element.find('a').attr('href');
+  return Url.resolve(url, relativeUrl);
 }
 
 function getListingDetails(element) {
@@ -62,7 +64,7 @@ function getLongitude(element) {
   return element.attr('data-longitude');
 }
 
-exports.scrapeListings = function(text, params) {
+exports.scrapeListings = function(text, url, params) {
   var listings = [];
   var previousDate;
   var didBreak = false;
@@ -81,7 +83,7 @@ exports.scrapeListings = function(text, params) {
     var listing = {
       postId: postId,
       title: getTitle(element),
-      url: getUrl(element),
+      url: getUrl(element, url),
       price: getPrice(element),
       bedrooms: getBedrooms(element),
       footage: getFootage(element),
