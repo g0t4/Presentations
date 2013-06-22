@@ -5,6 +5,7 @@ var fs = require('fs');
 chai.should();
 
 describe('html scraper', function() {
+
   describe('html with one listing', function() {
     var htmlWithOneListing = fs.readFileSync('test/oneListing.html');
     var listings = htmlScraper.scrapeListings(htmlWithOneListing, {});
@@ -34,5 +35,22 @@ describe('html scraper', function() {
       expect(listings[0].publishedAt).to.eql(expectedDate);
     });
 
+    it('should have cities', function() {
+      expect(listings[0].cities).to.eql("(SEATTLE)");
+    });
+  })
+
+  describe('listing with location', function() {
+    var listingWithLocation = fs.readFileSync('test/listingWithLocation.html');
+    var listings = htmlScraper.scrapeListings(listingWithLocation, '', {});
+    var listing = listings[0];
+
+    it('should parse the latitude', function() {
+      expect(listing.latitude).to.eql('47');
+    });
+
+    it('should parse the longitude', function() {
+      expect(listing.longitude).to.eql('-100');
+    });
   })
 })

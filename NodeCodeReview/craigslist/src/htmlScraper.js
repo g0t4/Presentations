@@ -8,24 +8,31 @@ function getPostId(element) {
 function getPrice(element) {
   return element.find('.price').text();
 }
+
 function getTitle(element) {
   return element.find('a').text().trim();
 }
+
 function getUrl(element) {
   return element.find('a').attr('href');
 }
+
 function getListingDetails(element) {
   return element.find('.itemph').text().trim().replace(/ +-$/, '');
 }
+
 function getBedrooms(element) {
   return getListingDetails(element).split(/ *[-\/] */g)[1];
 }
+
 function getFootage(element) {
   return getListingDetails(element).split(/ *[-\/] */g)[2];
 }
+
 function getHasPicture(element) {
   return !!element.find('.itempx').text().trim().match('pic');
 }
+
 function getDate(element, previousDate) {
   var date = element.find('.itemdate').text().trim();
 
@@ -42,6 +49,19 @@ function getDate(element, previousDate) {
   }
   return undefined;
 }
+
+function getCities(element) {
+  return element.find('.pnr small').text().trim();
+}
+
+function getLatitude(element) {
+  return element.attr('data-latitude');
+}
+
+function getLongitude(element) {
+  return element.attr('data-longitude');
+}
+
 exports.scrapeListings = function(text, params) {
   var listings = [];
   var previousDate;
@@ -66,7 +86,10 @@ exports.scrapeListings = function(text, params) {
       bedrooms: getBedrooms(element),
       footage: getFootage(element),
       hasPic: getHasPicture(element),
-      publishedAt: getDate(element, previousDate)
+      publishedAt: getDate(element, previousDate),
+      cities: getCities(element),
+      latitude: getLatitude(element),
+      longitude: getLongitude(element)
     };
 
     if (!previousDate) {
@@ -75,6 +98,6 @@ exports.scrapeListings = function(text, params) {
 
     listings.push(listing);
   });
-  
+
   return listings;
 }
