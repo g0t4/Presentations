@@ -3,6 +3,7 @@ var expect = chai.expect;
 var weightedAverage = require('../');
 
 describe('weightedAverage', function () {
+    var quantitySelector = function (item) { return item.quantity;};
 
     describe('price of an order', function () {
         var priceSelector = function (item) { return item.price;};
@@ -22,7 +23,7 @@ describe('weightedAverage', function () {
                 var item = { price: 1, quantity: 1 };
                 var orderWithOneItem = { items: [item]};
 
-                var weightedAveragePrice = weightedAverage(orderWithOneItem, priceSelector);
+                var weightedAveragePrice = weightedAverage(orderWithOneItem, priceSelector, quantitySelector);
 
                 expect(weightedAveragePrice).to.equal(1);
             });
@@ -36,7 +37,7 @@ describe('weightedAverage', function () {
                 ];
                 var differingOrders = { items: differingItems};
 
-                var weightedAveragePrice = weightedAverage(differingOrders, priceSelector);
+                var weightedAveragePrice = weightedAverage(differingOrders, priceSelector, quantitySelector);
 
                 expect(weightedAveragePrice).to.be.closeTo(2.333, 0.001);
             });
@@ -47,7 +48,7 @@ describe('weightedAverage', function () {
                 var item = { price: 1, quantity: 0 };
                 var orderWithZeroQuantityItem = { items: [item]};
 
-                var weightedAveragePrice = weightedAverage(orderWithZeroQuantityItem, priceSelector);
+                var weightedAveragePrice = weightedAverage(orderWithZeroQuantityItem, priceSelector, quantitySelector);
 
                 expect(weightedAveragePrice).to.equal(0);
             });
@@ -61,11 +62,31 @@ describe('weightedAverage', function () {
                 var item = { discountedPrice: 1, quantity: 1 };
                 var orderWithOneItem = { items: [item]};
 
-                var weightedAveragePrice = weightedAverage(orderWithOneItem, function (item) { return item.discountedPrice;});
+                var discountedPriceSelector = function (item) { return item.discountedPrice;};
+                var weightedAveragePrice = weightedAverage(orderWithOneItem, discountedPriceSelector, quantitySelector);
 
                 expect(weightedAveragePrice).to.equal(1);
             });
         });
     });
+
+    describe('grade of weighted assignments', function () {
+        describe('with two assignments', function () {
+            it('should return the weighted average assignment grade', function () {
+                var assignments = [
+                    {grade: 93, weight: 0.3},
+                    {grade: 88, weight: 0.7}
+                ]
+                var student = { items: assignments};
+
+                var gradeSelector = function (assignment) { return assignment.grade;};
+                var weightSelector = function (assignment) { return assignment.weight;};
+                var weightedAverageGrade = weightedAverage(student, gradeSelector, weightSelector);
+
+                expect(weightedAverageGrade).to.equal(89.5);
+            })
+        })
+    })
+
 
 });
