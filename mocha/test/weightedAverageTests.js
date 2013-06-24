@@ -10,9 +10,9 @@ describe('weightedAverage', function () {
 
         describe('with no items', function () {
             it('should return 0', function () {
-                var orderWithNoItems = { items: []};
+                var noItems = [];
 
-                var weightedAveragePrice = weightedAverage(orderWithNoItems);
+                var weightedAveragePrice = weightedAverage(noItems);
 
                 expect(weightedAveragePrice).to.equal(0);
             });
@@ -20,10 +20,9 @@ describe('weightedAverage', function () {
 
         describe('with one item', function () {
             it('should return the items price', function () {
-                var item = { price: 1, quantity: 1 };
-                var orderWithOneItem = { items: [item]};
+                var oneItem = { price: 1, quantity: 1 };
 
-                var weightedAveragePrice = weightedAverage(orderWithOneItem, priceSelector, quantitySelector);
+                var weightedAveragePrice = weightedAverage([oneItem], priceSelector, quantitySelector);
 
                 expect(weightedAveragePrice).to.equal(1);
             });
@@ -35,9 +34,8 @@ describe('weightedAverage', function () {
                     { price: 1, quantity: 2 },
                     { price: 3, quantity: 4 }
                 ];
-                var differingOrders = { items: differingItems};
 
-                var weightedAveragePrice = weightedAverage(differingOrders, priceSelector, quantitySelector);
+                var weightedAveragePrice = weightedAverage(differingItems, priceSelector, quantitySelector);
 
                 expect(weightedAveragePrice).to.be.closeTo(2.333, 0.001);
             });
@@ -45,10 +43,9 @@ describe('weightedAverage', function () {
 
         describe('with one zero quantity item', function () {
             it('should return 0', function () {
-                var item = { price: 1, quantity: 0 };
-                var orderWithZeroQuantityItem = { items: [item]};
+                var zeroQuantityItem = { price: 1, quantity: 0 };
 
-                var weightedAveragePrice = weightedAverage(orderWithZeroQuantityItem, priceSelector, quantitySelector);
+                var weightedAveragePrice = weightedAverage([zeroQuantityItem], priceSelector, quantitySelector);
 
                 expect(weightedAveragePrice).to.equal(0);
             });
@@ -59,11 +56,10 @@ describe('weightedAverage', function () {
     describe('discountedPrice of an order', function () {
         describe('with one item', function () {
             it('should return the items discounted price', function () {
-                var item = { discountedPrice: 1, quantity: 1 };
-                var orderWithOneItem = { items: [item]};
+                var oneItem = { discountedPrice: 1, quantity: 1 };
 
                 var discountedPriceSelector = function (item) { return item.discountedPrice;};
-                var weightedAveragePrice = weightedAverage(orderWithOneItem, discountedPriceSelector, quantitySelector);
+                var weightedAveragePrice = weightedAverage([oneItem], discountedPriceSelector, quantitySelector);
 
                 expect(weightedAveragePrice).to.equal(1);
             });
@@ -77,11 +73,10 @@ describe('weightedAverage', function () {
                     {grade: 93, weight: 0.3},
                     {grade: 88, weight: 0.7}
                 ]
-                var student = { items: assignments};
 
                 var gradeSelector = function (assignment) { return assignment.grade;};
                 var weightSelector = function (assignment) { return assignment.weight;};
-                var weightedAverageGrade = weightedAverage(student, gradeSelector, weightSelector);
+                var weightedAverageGrade = weightedAverage(assignments, gradeSelector, weightSelector);
 
                 expect(weightedAverageGrade).to.equal(89.5);
             })

@@ -1,5 +1,4 @@
-module.exports = function (order, valueSelector, weightSelector) {
-    var items = order.items;
+module.exports = function (items, valueSelector, weightSelector) {
     if (items.length == 0) {
         return 0;
     }
