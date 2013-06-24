@@ -1,0 +1,19 @@
+{
+  "name": "mochatest",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~1.11.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "",
+  "author": "",
+  "license": "MIT"
+}
