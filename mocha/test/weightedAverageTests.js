@@ -5,6 +5,7 @@ var weightedAverage = require('../');
 describe('weightedAverage', function () {
 
     describe('price of an order', function () {
+        var priceSelector = function (item) { return item.price;};
 
         describe('with no items', function () {
             it('should return 0', function () {
@@ -21,7 +22,7 @@ describe('weightedAverage', function () {
                 var item = { price: 1, quantity: 1 };
                 var orderWithOneItem = { items: [item]};
 
-                var weightedAveragePrice = weightedAverage(orderWithOneItem);
+                var weightedAveragePrice = weightedAverage(orderWithOneItem, priceSelector);
 
                 expect(weightedAveragePrice).to.equal(1);
             });
@@ -35,7 +36,7 @@ describe('weightedAverage', function () {
                 ];
                 var differingOrders = { items: differingItems};
 
-                var weightedAveragePrice = weightedAverage(differingOrders);
+                var weightedAveragePrice = weightedAverage(differingOrders, priceSelector);
 
                 expect(weightedAveragePrice).to.be.closeTo(2.333, 0.001);
             });
@@ -46,12 +47,25 @@ describe('weightedAverage', function () {
                 var item = { price: 1, quantity: 0 };
                 var orderWithZeroQuantityItem = { items: [item]};
 
-                var weightedAveragePrice = weightedAverage(orderWithZeroQuantityItem);
+                var weightedAveragePrice = weightedAverage(orderWithZeroQuantityItem, priceSelector);
 
                 expect(weightedAveragePrice).to.equal(0);
             });
         });
 
+    });
+
+    describe('discountedPrice of an order', function () {
+        describe('with one item', function () {
+            it('should return the items discounted price', function () {
+                var item = { discountedPrice: 1, quantity: 1 };
+                var orderWithOneItem = { items: [item]};
+
+                var weightedAveragePrice = weightedAverage(orderWithOneItem, function (item) { return item.discountedPrice;});
+
+                expect(weightedAveragePrice).to.equal(1);
+            });
+        });
     });
 
 });
