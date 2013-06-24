@@ -3,15 +3,15 @@ module.exports = function (order, valueSelector, weightSelector) {
     if (items.length == 0) {
         return 0;
     }
-    var totalDollars = 0;
-    var totalQuantity = 0;
+    var totalValueTimesWeight = 0;
+    var totalWeight = 0;
     items.forEach(function (item) {
-        var quantity = weightSelector(item);
-        totalDollars += valueSelector(item) * quantity;
-        totalQuantity += quantity;
+        var weight = weightSelector(item);
+        totalValueTimesWeight += valueSelector(item) * weight;
+        totalWeight += weight;
     });
-    if (totalQuantity === 0) {
+    if (totalWeight === 0) {
         return 0;
     }
-    return totalDollars / totalQuantity;
+    return totalValueTimesWeight / totalWeight;
 }
