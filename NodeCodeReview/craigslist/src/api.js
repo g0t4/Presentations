@@ -84,7 +84,17 @@ exports.getListHTML = function(url, params, callback) {
 
   exports.get(url, function(response) {
     var result = htmlScarper.scrapeListings(response.text, url, params);
-    if (callback) callback(null, result);
+    var $ = cheerio.load(response.text);
+    var nextPagLink = $('a', 'span.next');
+    if (nextPagLink.length == 0) {
+      return callback(null, result);
+    }
+    var nextPageUrl = $(nextPagLink[0]).attr('href');
+    exports.getListHTML(nextPageUrl, params, function(error, remainingResults) {
+      if (error) return callback(error);
+      var allResults = result.concat(remainingResults);
+      callback(null, allResults);
+    });
   });
 }
 
