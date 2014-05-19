@@ -14,7 +14,7 @@
 //        }
 
 //        [Test]
-//        public void Sample()
+//        public void WeightedAveragePrice()
 //        {
 //            var orders = new[]
 //                {
@@ -28,20 +28,20 @@
 //            Expect(averagePrice, Is.EqualTo(2.2m));
 //        }
 
-//        public class CategoryGrade
+//        public class Assignment
 //        {
-//            public int Grade { get; set; }
 //            public decimal Weight { get; set; }
+//            public int Grade { get; set; }
 //        }
 
 //        [Test]
-//        public void DifferentUseCase()
+//        public void WeightedAverageGrade()
 //        {
 //            var grades = new[]
 //                {
-//                    new CategoryGrade {Grade = 93, Weight = 0.30m},
-//                    new CategoryGrade {Grade = 88, Weight = 0.50m},
-//                    new CategoryGrade {Grade = 91, Weight = 0.20m}
+//                    new Assignment {Grade = 93, Weight = 0.30m},
+//                    new Assignment {Grade = 88, Weight = 0.50m},
+//                    new Assignment {Grade = 91, Weight = 0.20m}
 //                };
 
 //            var grade = grades.WeightedAverage(g => g.Grade, g => g.Weight);
